@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">ProjectGroupMakerBinar</string>
+    <string name="text_group">Group</string>
+    <string name="text_maker">Maker</string>
+    <string name="text_active_list_members">Active List members</string>
+    <string name="text_tournament_member">Tournament Member</string>
+    <string name="text_two_members">Two Members</string>
+    <string name="text_group_generator">Group Generator</string>
+    <string name="text_members_management">Members Management</string>
+    <string name="text_member">Member</string>
+    <string name="text_history">History</string>
+    <string name="text_about">About</string>
 </resources>
