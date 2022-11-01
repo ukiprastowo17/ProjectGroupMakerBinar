@@ -7,10 +7,11 @@
     tools:context=".slider.SliderOneFragment">
 
     <ImageView
+        android:id="@+id/iv_landpage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_landpage_1" />
+        tools:src="@drawable/ic_landpage_1" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl_guideline"
@@ -25,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:fontFamily="@font/montserrat_bold"
-        android:text="@string/easy_to_use"
+        tools:text="Title"
         android:textColor="@color/gray"
         android:textSize="35sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +43,7 @@
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_title_landpage"
-        tools:text="Membuat grup menjadi lebih mudah \nhanya dari ponsel Anda." />
+        tools:text="Description" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
