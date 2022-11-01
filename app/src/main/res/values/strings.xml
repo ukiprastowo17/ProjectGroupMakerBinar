@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ProjectGroupMakerBinar</string>
+    <string name="title_about">About</string>
+    <string name="title_group">Group Maker</string>
+    <string name="desc_group">Membuat kelompok secara otomatis</string>
+    <string name="text_body">Group Maker adalah sebuah generator yang membuat tim atau kelompok secara acak. Melalui aplikasi ini dapat membantu anda untuk membagi daftar nama menjadi suatu tim atau kelompok. Dengan memasukkan daftar nama ke dalam generator tim, generator tim tersebut akan mengacak nama yang telah anda masukkan sebelumnya. Anda juga dapat mengatur jumlah kelompok atau jumlah orang dalam suatu kelompok yang ingin anda buat hingga menghasilkan sebuah kelompok yang merata secara acak dalam sebuah kelompok</string>
 </resources>
