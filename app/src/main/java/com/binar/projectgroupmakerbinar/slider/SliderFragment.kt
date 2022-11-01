@@ -6,13 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import coil.load
-import com.binar.projectgroupmakerbinar.R
-import com.binar.projectgroupmakerbinar.databinding.FragmentSliderOneBinding
+import com.binar.projectgroupmakerbinar.databinding.FragmentSliderBinding
 import com.binar.projectgroupmakerbinar.slider.model.SliderData
 
 
-class SliderOneFragment : Fragment() {
-    private lateinit var binding: FragmentSliderOneBinding
+class SliderFragment : Fragment() {
+    private lateinit var binding: FragmentSliderBinding
 
     private var sliderData: SliderData? = null
 
@@ -21,7 +20,7 @@ class SliderOneFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        binding = FragmentSliderOneBinding.inflate(layoutInflater, container, false)
+        binding = FragmentSliderBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
@@ -53,7 +52,7 @@ class SliderOneFragment : Fragment() {
 
         @JvmStatic
         fun newInstance(sliderData: SliderData) =
-            SliderOneFragment().apply {
+            SliderFragment().apply {
                 arguments = Bundle().apply {
                     putParcelable(ARG_SLIDER_DATA,sliderData)
 

@@ -1,13 +1,11 @@
-package com.binar.projectgroupmakerbinar
+package com.binar.projectgroupmakerbinar.slider
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.view.isInvisible
 import androidx.viewpager2.widget.ViewPager2
 import com.binar.projectgroupmakerbinar.R
 import com.binar.projectgroupmakerbinar.databinding.ActivityLandingPageBinding
-import com.binar.projectgroupmakerbinar.slider.SliderOneFragment
 import com.binar.projectgroupmakerbinar.slider.model.SliderData
 import com.binar.projectgroupmakerbinar.slider.utils.ViewPagerAdapter
 import com.binar.projectgroupmakerbinar.slider.utils.getNextIndex
@@ -52,7 +50,6 @@ class LandingPageActivity : AppCompatActivity() {
             binding.vpIntro.setCurrentItem(nextIndex, true)
         }else{
             //Todo: navigate to Home Activity
-
         }
     }
 
@@ -64,7 +61,7 @@ class LandingPageActivity : AppCompatActivity() {
     private fun initAdapter() {
         pagerAdapter.apply {
             addFragment(
-                SliderOneFragment.newInstance(
+                SliderFragment.newInstance(
                     SliderData(
                         "Easy \nTo Use",
                         "Membuat grup menjadi lebih mudah \nhanya dari ponsel Anda.",
@@ -73,10 +70,10 @@ class LandingPageActivity : AppCompatActivity() {
                 )
             )
             addFragment(
-                SliderOneFragment.newInstance(
+                SliderFragment.newInstance(
                     SliderData(
                         "Fast & \nBest Solution",
-                        "Sebagai sebuah solusi yang cepat dan tepat. \nAnda juga bisa memberikan nama grup.",
+                        "Sebagai sebuah solusi yang cepat dan tepat. Anda juga bisa memberikan nama grup.",
                         R.drawable.ic_landpage_2
                     )
                 )
