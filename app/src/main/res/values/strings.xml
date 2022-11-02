@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ProjectGroupMakerBinar</string>
+    <string name="desc_delete">Your member data in this member list will be permanently removed and you won’t be able to see them again.</string>
 </resources>

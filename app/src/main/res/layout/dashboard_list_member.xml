@@ -10,7 +10,7 @@
         android:id="@+id/tv_list_caption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginVertical="30dp"
         android:fontFamily="@font/poppins_regular_font"
         android:text="List"
         android:textColor="#007DFE"
@@ -47,9 +47,10 @@
         app:layout_constraintTop_toBottomOf="@id/tv_member_caption" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_people"
+        android:id="@+id/rv_list_group"
         android:layout_width="wrap_content"
-        android:layout_height="450dp"
+        android:layout_height="430dp"
+        android:layout_marginHorizontal="10dp"
         tools:listitem="@layout/item_list"
         app:layout_constraintTop_toBottomOf="@+id/tv_desc_caption"
         app:layout_constraintRight_toRightOf="parent"
@@ -57,33 +58,31 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:ignore="MissingConstraints" />
 
-
-
     <Button
         android:id="@+id/bt_add_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="100dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="30dp"
         android:backgroundTint="#007DFE"
         android:text="Add List"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="@id/bt_add_search" />
+        app:layout_constraintRight_toRightOf="parent"
+        />
 
-    <Button
-        android:id="@+id/bt_add_search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginBottom="50dp"
-        android:backgroundTint="#007DFE"
-        android:text="Search"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="@id/bt_add_list"
-        app:layout_constraintRight_toRightOf="parent" />
+<!--    <Button-->
+<!--        android:id="@+id/bt_add_search"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="100dp"-->
+<!--        android:layout_marginBottom="50dp"-->
+<!--        android:backgroundTint="#007DFE"-->
+<!--        android:text="Search"-->
+<!--        android:textColor="@color/white"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintLeft_toLeftOf="@id/bt_add_list"-->
+<!--        app:layout_constraintRight_toRightOf="parent" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
