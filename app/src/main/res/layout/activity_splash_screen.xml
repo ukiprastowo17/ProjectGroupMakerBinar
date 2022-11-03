@@ -21,7 +21,7 @@
         android:src="@drawable/ic_people_splash"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="@id/tv_maker"
-        app:layout_constraintVertical_bias="0.242"
+        app:layout_constraintVertical_bias="0.184"
         tools:layout_editor_absoluteX="0dp" />
 
     <TextView
@@ -30,10 +30,9 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_bold"
         android:text="@string/text_group_splash"
+        style="@style/TextTitle.Bold"
         android:textAlignment="center"
-        android:textColor="#F1EFEF"
-        android:textSize="40dp"
-        android:textStyle="bold"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -43,18 +42,18 @@
 
     <TextView
         android:id="@+id/tv_maker"
-        android:layout_width="160dp"
+        style="@style/TextTitle.Light"
+        android:layout_width="200dp"
         android:layout_height="80dp"
-        android:fontFamily="@font/poppins_regular"
+        android:letterSpacing="0.15"
         android:text="@string/text_maker_splash"
-        android:textColor="#028ECD"
-        android:textSize="48dp"
+        android:textSize="38sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.565"
+        app:layout_constraintHorizontal_bias="0.668"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_group"
-        app:layout_constraintVertical_bias="0.073" />
+        app:layout_constraintVertical_bias="0.082" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
