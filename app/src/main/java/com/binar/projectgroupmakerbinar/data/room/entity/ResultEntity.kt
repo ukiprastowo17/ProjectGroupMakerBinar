@@ -1,4 +1,4 @@
-package com.binar.aplikasibinaerteama.data.db.entity
+package com.binar.projectgroupmakerbinar.data.room.entity
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo
