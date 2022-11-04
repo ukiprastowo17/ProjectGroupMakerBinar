@@ -1,12 +1,13 @@
-package com.catnip.notepadku.data
+package com.binar.projectgroupmakerbinar.data.room
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.binar.aplikasibinaerteama.data.db.dao.MemberDao
-import com.binar.aplikasibinaerteama.data.db.entity.Member
+import com.binar.projectgroupmakerbinar.data.room.dao.MemberDao
+import com.binar.projectgroupmakerbinar.data.room.entity.MemberEntity
+
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -14,7 +15,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 
-@Database(entities = [Member::class], version = 1, exportSchema = true)
+@Database(entities = [MemberEntity::class], version = 1, exportSchema = true)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun memberDao(): MemberDao
 
@@ -60,11 +61,11 @@ class DatabaseSeederCallback(private val context: Context) : RoomDatabase.Callba
 
 
 
-    private fun prepopulateNotes(): List<Member> {
+    private fun prepopulateNotes(): List<MemberEntity> {
         return mutableListOf(
-            Member( name = "Member 1", note="", group = ""),
-            Member( name = "Member 2", note="",group = ""),
-            Member( name = "Member 3", note="",group = ""),
+            MemberEntity( name = "Member 1", note="", group = ""),
+            MemberEntity( name = "Member 2", note="",group = ""),
+            MemberEntity( name = "Member 3", note="",group = ""),
 
         )
     }
