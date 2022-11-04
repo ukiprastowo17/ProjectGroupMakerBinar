@@ -9,7 +9,6 @@ import com.binar.projectgroupmakerbinar.databinding.ActivityMainBinding
 import com.binar.projectgroupmakerbinar.databinding.DashboardListMemberBinding
 
 class MainActivity : AppCompatActivity() {
-
     private val binding: ActivityMainBinding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
