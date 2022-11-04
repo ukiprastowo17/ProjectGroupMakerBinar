@@ -1,4 +1,4 @@
-package com.catnip.notepadku.data.pref
+package com.binar.projectgroupmakerbinar.data.pref
 
 import android.content.Context
 import android.content.SharedPreferences

@@ -1,4 +1,4 @@
-package com.binar.aplikasibinaerteama.data.db.entity
+package com.binar.projectgroupmakerbinar.data.room.entity
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo
@@ -9,7 +9,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 @Entity(tableName = "tb_member")
-data class Member(
+data class MemberEntity(
     @PrimaryKey(autoGenerate = false) val id: Int? = null,
     @ColumnInfo(name = "name")
     val name: String,
