@@ -12,4 +12,8 @@
     <string name="fast_best_solution"><![CDATA[Fast & \nBest Solution]]></string>
     <string name="text_desc_lp1">Membuat grup menjadi lebih mudah \nhanya dari ponsel Anda.</string>
     <string name="text_desc_lp2">Sebagai sebuah solusi yang cepat dan tepat. Anda juga \nbisa memberikan nama grup.</string>
+    <string name="text_delete">Delete</string>
+    <string name="text_view_detail">View Detail</string>
+    <string name="text_history">History \nGroup</string>
+    <string name="text_group">Group</string>
 </resources>

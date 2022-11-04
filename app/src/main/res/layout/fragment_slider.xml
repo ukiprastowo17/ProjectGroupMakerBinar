@@ -22,25 +22,21 @@
 
     <TextView
         android:id="@+id/tv_title_landpage"
+        style="@style/TextTitleLP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
-        android:fontFamily="@font/montserrat_bold"
-        tools:text="Title"
-        android:textColor="@color/gray"
-        android:textSize="35sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/gl_guideline" />
+        app:layout_constraintTop_toTopOf="@id/gl_guideline"
+        tools:text="Title" />
 
     <TextView
         android:id="@+id/tv_desc_landpage"
+        style="@style/TextDesc.Light"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/montserrat"
-        android:textColor="@color/gray"
-        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@id/tv_title_landpage"
         app:layout_constraintTop_toBottomOf="@id/tv_title_landpage"
         tools:text="Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid eaque magnam necessitatibus officiis porro, possimus veritatis? Dignissimos dolores dolorum in? Beatae distinctio dolores qui. Eligendi et explicabo facere porro reprehenderit rerum ut voluptas. Ad amet, autem consequuntur cumque cupiditate eos eum facilis labore, nemo odit porro quaerat quisquam sit voluptatum?" />
