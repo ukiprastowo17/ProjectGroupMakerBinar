@@ -20,19 +20,15 @@
             android:id="@+id/tv_title1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_bold"
             android:text="@string/title_about"
-            android:textColor="@color/dark_blue"
-            android:textSize="@dimen/_28ssp"/>
+            style="@style/TextTitle.Bold"/>
 
         <TextView
             android:id="@+id/tv_title2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/title_group"
-            android:fontFamily="@font/poppins_regular"
-            android:textColor="@color/dark_blue"
-            android:textSize="@dimen/_20ssp"/>
+            style="@style/TextTitle.Bold"/>
     </LinearLayout>
 
     <TextView
@@ -43,8 +39,7 @@
         app:layout_constraintTop_toBottomOf="@id/ll_title_menu"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:fontFamily="@font/poppins_regular"
-        android:textSize="@dimen/_10ssp"/>
+        style="@style/TextDesc.Reg"/>
 
     <ImageView
         android:id="@+id/iv_bg_about"
@@ -75,11 +70,9 @@
         app:layout_constraintLeft_toRightOf="@id/iv_img_about"
         android:layout_marginLeft="@dimen/_30sdp"
         android:layout_marginTop="@dimen/_60sdp"
-        android:text="About"
-        android:textSize="@dimen/_15ssp"
-        android:textColor="@color/dark_blue"
-        android:textStyle="bold"
-        android:fontFamily="@font/poppins_bold"/>
+        android:text="@string/title_menu1"
+        style="@style/TextTitle.Bold"
+        android:textSize="20dp"/>
 
     <TextView
         android:id="@+id/tv_desc_about"
@@ -88,9 +81,8 @@
         app:layout_constraintTop_toBottomOf="@id/tv_title_about"
         app:layout_constraintLeft_toRightOf="@id/iv_img_about"
         android:layout_marginLeft="@dimen/_30sdp"
-        android:text="About"
-        android:fontFamily="@font/poppins_regular"
-        android:textSize="@dimen/_15ssp"/>
+        android:text="@string/title_desc_menu1"
+        style="@style/TextDesc.Reg"/>
 
     <ImageView
         android:id="@+id/iv_bg_team"
@@ -120,11 +112,9 @@
         app:layout_constraintLeft_toRightOf="@id/iv_img_team"
         android:layout_marginLeft="@dimen/_30sdp"
         android:layout_marginTop="@dimen/_60sdp"
-        android:text="Our Team"
-        android:fontFamily="@font/poppins_bold"
-        android:textSize="@dimen/_15ssp"
-        android:textColor="@color/dark_blue"
-        android:textStyle="bold"/>
+        android:text="@string/title_menu2"
+        style="@style/TextTitle.Bold"
+        android:textSize="20dp"/>
 
     <TextView
         android:id="@+id/tv_desc_team"
@@ -133,8 +123,7 @@
         app:layout_constraintTop_toBottomOf="@id/tv_title_team"
         app:layout_constraintLeft_toRightOf="@id/iv_img_team"
         android:layout_marginLeft="@dimen/_30sdp"
-        android:fontFamily="@font/poppins_regular"
-        android:text="Our Team"
-        android:textSize="@dimen/_15ssp"/>
+        android:text="@string/title_desc_menu2"
+        style="@style/TextDesc.Reg"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
