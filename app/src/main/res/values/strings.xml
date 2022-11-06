@@ -10,4 +10,5 @@
     <string name="text_member">Member</string>
     <string name="text_history">History</string>
     <string name="text_about">About</string>
+    <string name="text_group_result">Group Result</string>
 </resources>

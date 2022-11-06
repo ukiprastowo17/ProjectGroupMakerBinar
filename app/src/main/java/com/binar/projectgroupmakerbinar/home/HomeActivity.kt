@@ -36,7 +36,7 @@ class HomeActivity : AppCompatActivity() {
             cvHistory.setOnClickListener {
                 /*val intent = Intent(this@HomeActivity, HistoryActivity::class.java)
                 startActivity(intent)*/
-                Toast.makeText(this@HomeActivity, "Go To History Activity", Toast.LENGTH_SHORT)
+                Toast.makeText(this@HomeActivity, "Go To Group Result Activity", Toast.LENGTH_SHORT)
                     .show()
             }
             cvAbout.setOnClickListener {
