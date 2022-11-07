@@ -19,7 +19,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
-                android:layout_marginLeft="@dimen/_40sdp"
+                android:layout_marginLeft="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:text="Our"
                 android:textSize="@dimen/_20ssp"
@@ -31,161 +31,24 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/tv_team1"
                 app:layout_constraintLeft_toLeftOf="parent"
-                android:layout_marginLeft="@dimen/_40sdp"
+                android:layout_marginLeft="@dimen/_20sdp"
                 android:text="Team"
                 android:textSize="@dimen/_15ssp"
                 style="@style/TextTitle.Light"/>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <androidx.recyclerview.widget.RecyclerView
                 app:layout_constraintTop_toBottomOf="@id/tv_team2"
-                android:orientation="vertical"
                 android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_20sdp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                android:layout_marginLeft="@dimen/_40sdp">
-                
-                <LinearLayout
-                    android:id="@+id/ll_uki"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="20dp">
+                android:id="@+id/list_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                xmlns:android="http://schemas.android.com/apk/res/android">
 
-                    <ImageView
-                        android:id="@+id/iv_leader"
-                        android:layout_width="@dimen/_70sdp"
-                        android:layout_height="@dimen/_70sdp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/ic_uki"/>
+            </androidx.recyclerview.widget.RecyclerView>
 
-                    <TextView
-                        android:layout_marginTop="@dimen/_20sdp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_30sdp"
-                        android:text="@string/txt_name_job_uki"
-                        style="@style/TextMember"/>
-                </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/ll_lukas"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="20dp">
-
-                    <ImageView
-                        android:id="@+id/iv_design"
-                        android:layout_width="@dimen/_70sdp"
-                        android:layout_height="@dimen/_70sdp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/ic_lukas"
-                        android:layout_marginBottom="@dimen/_20sdp"/>
-
-                    <TextView
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_30sdp"
-                        android:text="@string/txt_name_job_lukas"
-                        android:layout_marginBottom="@dimen/_20ssp"
-                        style="@style/TextMember"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_adhi"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="20dp">
-
-                    <ImageView
-                        android:id="@+id/iv_scrum"
-                        android:layout_width="@dimen/_70sdp"
-                        android:layout_height="@dimen/_70sdp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/ic_adhi"/>
-
-                    <TextView
-                        android:layout_marginTop="@dimen/_20sdp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_30sdp"
-                        android:text="@string/txt_name_job_adhi"
-                        style="@style/TextMember"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_rodan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="20dp">
-
-                    <ImageView
-                        android:id="@+id/iv_developer1"
-                        android:layout_width="@dimen/_70sdp"
-                        android:layout_height="@dimen/_70sdp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/ic_rodan"/>
-
-                    <TextView
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_30sdp"
-                        android:text="@string/txt_name_job_rodan"
-                        style="@style/TextMember"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_habio"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="20dp">
-
-                    <ImageView
-                        android:id="@+id/iv_developer2"
-                        android:layout_width="@dimen/_70sdp"
-                        android:layout_height="@dimen/_70sdp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/ic_habio"/>
-
-                    <TextView
-                        android:layout_marginTop="@dimen/_15sdp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_30sdp"
-                        android:text="@string/txt_name_job_habio"
-                        style="@style/TextMember"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_eri"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="20dp">
-
-                    <ImageView
-                        android:id="@+id/iv_developer3"
-                        android:layout_width="@dimen/_70sdp"
-                        android:layout_height="@dimen/_70sdp"
-                        android:scaleType="centerCrop"
-                        tools:src="@tools:sample/avatars"/>
-
-                    <TextView
-                        android:layout_marginTop="@dimen/_15sdp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_30sdp"
-                        android:text="@string/txt_name_job_eri"
-                        style="@style/TextMember"/>
-                </LinearLayout>
-
-            </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
