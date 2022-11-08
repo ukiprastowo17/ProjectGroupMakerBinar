@@ -13,7 +13,7 @@ class ListGroupItemViewHolder(private val binding: ItemListBinding) :
     RecyclerView.ViewHolder(binding.root) {
         fun bindView(item: ListGroup){
             binding.tvListTitle.text = item.name
-            binding.tvListDesc.text = item.description
+            binding.tvListDesc.text = item.note
             itemView.setOnClickListener {
 //                Toast.makeText(itemView.context,item.name,Toast.LENGTH_SHORT).show()
 //                Intent(itemView.context, AddMember::class.java).also {

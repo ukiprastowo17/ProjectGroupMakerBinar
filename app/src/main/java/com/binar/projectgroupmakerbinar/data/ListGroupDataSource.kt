@@ -9,12 +9,12 @@ interface ListGroupDataSource {
 class DummyListGroupDataSource : ListGroupDataSource {
     override fun getListGroup(): List<ListGroup> {
         return mutableListOf(
-            ListGroup("Touring", "Descripsi Touring"),
-            ListGroup("Futsal", "Descripsi Futsal"),
-            ListGroup("Basket", "Descripsi Basket"),
-            ListGroup("Catur", "Descripsi Catur"),
-            ListGroup("Badminton", "Descripsi Badminton"),
-            ListGroup("Senam", "Descripsi Senam")
+            ListGroup("Touring", "Descripsi Touring","group1"),
+            ListGroup("Futsal", "Descripsi Futsal","group1"),
+            ListGroup("Basket", "Descripsi Basket","group1"),
+            ListGroup("Catur", "Descripsi Catur","group1"),
+            ListGroup("Badminton", "Descripsi Badminton","group1"),
+            ListGroup("Senam", "Descripsi Senam","group1")
         )
     }
 }

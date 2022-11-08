@@ -61,9 +61,23 @@ class DatabaseSeederCallback(private val context: Context) : RoomDatabase.Callba
 
     private fun prepopulateNotes(): List<MemberEntity> {
         return mutableListOf(
-            MemberEntity( name = "Member 1", note="", group = ""),
-            MemberEntity( name = "Member 2", note="",group = ""),
-            MemberEntity( name = "Member 3", note="",group = ""),
+            MemberEntity( name = "SATU A", note="Catatan Group A", group = "Group A"),
+            MemberEntity( name = "DUA A", note="Catatan Group A", group = "Group A"),
+            MemberEntity( name = "TIGA A", note="Catatan Group A", group = "Group A"),
+            MemberEntity( name = "EMPAT A", note="Catatan Group A", group = "Group A"),
+            MemberEntity( name = "LIMA A", note="Catatan Group A", group = "Group A"),
+
+            MemberEntity( name = "SATU B", note="Catatan Group B", group = "Group B"),
+            MemberEntity( name = "DUA B", note="Catatan Group B", group = "Group B"),
+            MemberEntity( name = "TIGA B", note="Catatan Group B", group = "Group B"),
+            MemberEntity( name = "EMPAT B", note="Catatan Group B", group = "Group B"),
+            MemberEntity( name = "LIMA B", note="Catatan Group B", group = "Group B"),
+
+            MemberEntity( name = "SATU C", note="Catatan Group C", group = "Group C"),
+            MemberEntity( name = "DUA C", note="Catatan Group C", group = "Group C"),
+            MemberEntity( name = "TIGA C", note="Catatan Group C", group = "Group C"),
+            MemberEntity( name = "EMPAT C", note="Catatan Group C", group = "Group C"),
+            MemberEntity( name = "LIMA C", note="Catatan Group C", group = "Group C"),
         )
     }
 }

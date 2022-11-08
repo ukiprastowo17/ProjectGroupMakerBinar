@@ -10,6 +10,9 @@ interface MemberDao {
     @Query("SELECT * FROM tb_member")
     suspend fun getAllMembers() : List<MemberEntity>
 
+    @Query("SELECT * FROM tb_member GROUP BY `group`")
+    suspend fun getAllGroup() : List<MemberEntity>
+
 
     @Query("SELECT * FROM tb_member WHERE id == :id")
     suspend fun getAllMembersById(id : Int) : MemberEntity

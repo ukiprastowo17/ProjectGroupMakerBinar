@@ -7,9 +7,11 @@ import com.binar.projectgroupmakerbinar.data.ListMemberDataSource
 import com.binar.projectgroupmakerbinar.databinding.AddMemberBinding
 
 class AddMember : AppCompatActivity() {
+
     private val binding: AddMemberBinding by lazy {
         AddMemberBinding.inflate(layoutInflater)
     }
+
     private val adapter: ListMemberListAdapter by lazy {
         ListMemberListAdapter()
     }
@@ -21,9 +23,11 @@ class AddMember : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        val groupName = intent.getStringExtra("GROUPNAME")
         supportActionBar?.hide() ;
         setupList()
         binding.apply {
+            tvMemberCaption.text = groupName
             btAddMember.setOnClickListener {
                 CustomDialogAddMember("DRAW").apply {
 

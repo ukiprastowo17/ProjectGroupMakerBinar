@@ -1,40 +1,63 @@
 package com.binar.projectgroupmakerbinar.ui.member
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.binar.projectgroupmakerbinar.adapter.ListGroupListAdapter
+import com.binar.projectgroupmakerbinar.base.GenericViewModelFactory
 import com.binar.projectgroupmakerbinar.data.DummyListGroupDataSource
 import com.binar.projectgroupmakerbinar.data.ListGroupDataSource
+import com.binar.projectgroupmakerbinar.data.repository.LocalRepository
+import com.binar.projectgroupmakerbinar.data.room.entity.MemberEntity
 import com.binar.projectgroupmakerbinar.databinding.DashboardListMemberBinding
-import com.binar.projectgroupmakerbinar.model.ListGroup
+import com.binar.projectgroupmakerbinar.di.ServiceLocator
+import com.binar.projectgroupmakerbinar.ui.main.adapter.MembersAdapter
+import com.catnip.notepadku.wrapper.Resource
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+
 
 class DashboardListMember : AppCompatActivity() {
+
+    private val binding: DashboardListMemberBinding by lazy {
+        DashboardListMemberBinding.inflate(layoutInflater)
+    }
 
     private val viewModel: MainViewModel by lazy {
         GenericViewModelFactory(MainViewModel(ServiceLocator.provideLocalRepository(this)))
             .create(MainViewModel::class.java)
     }
 
-    private val binding: DashboardListMemberBinding by lazy {
-        DashboardListMemberBinding.inflate(layoutInflater)
+
+    private fun initData() {
+        viewModel.getAllGroup()
     }
-    private val adapter: ListGroupListAdapter by lazy {
-        ListGroupListAdapter()
+
+    private val adapter: MembersAdapter by lazy {
+        MembersAdapter {
+            //todo : onClick event
+        }
     }
+
+//    private val adapter: ListGroupListAdapter by lazy {
+//        ListGroupListAdapter()
+//    }
 
     private val dataSource: ListGroupDataSource by lazy {
         DummyListGroupDataSource()
-    }
-
-    private fun initData() {
-        .getAllNotes()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         supportActionBar?.hide()
-        setupList()
+
+        initRecyclerView()
         observeData()
+        initData()
+//        setupList()
         binding.apply {
             btAddList.setOnClickListener {
                 CustomDialogAddList("DRAW").apply {
@@ -45,7 +68,7 @@ class DashboardListMember : AppCompatActivity() {
     }
 
     private fun observeData() {
-        viewModel.notesResult.observe(this) {
+        viewModel.memberResult.observe(this) {
             when (it) {
                 is Resource.Error -> {
                     showError(it.message)
@@ -60,25 +83,62 @@ class DashboardListMember : AppCompatActivity() {
         }
     }
 
-
-
-    private fun showData(data: List<ListGroup>?) {
+    private fun showData(data: List<MemberEntity>?) {
         data?.let { listData ->
-//            binding.pbNotes.isVisible = false
-//            binding.tvError.isVisible = false
-//            binding.rvNotes.isVisible = true
             if (listData.isNotEmpty()) {
-                adapter.setItemData(listData)
+                adapter.setItems(listData)
             } else {
-//                showEmptyData()
+                showEmptyData()
             }
         }
     }
+
+    private fun showEmptyData() {
+//        binding.tvError.isVisible = true
+//        binding.tvError.text = getString(R.string.text_empty_notes)
+
+    }
+
+    private fun initRecyclerView() {
+        binding.rvListGroup.adapter = this@DashboardListMember.adapter
+    }
+
+
+    private fun showLoading() {
+//        binding.pbNotes.isVisible = true
+//        binding.tvError.isVisible = false
+//        binding.rvNotes.isVisible = false
+    }
+
+    private fun showError(message: String?) {
+//        binding.pbNotes.isVisible = false
+//        binding.tvError.isVisible = true
+//        binding.rvNotes.isVisible = false
+//        message?.let {
+//            binding.tvError.text = it
+//        }
+    }
+
 
     private fun setupList() {
         binding.rvListGroup.apply {
             adapter = this@DashboardListMember.adapter
         }
-        adapter.setItemData(dataSource.getListGroup())
+//        adapter.setItems(dataSource.getListGroup())
+    }
+
+}
+
+typealias MemberResultType = Resource<List<MemberEntity>>
+class MainViewModel(private val repository: LocalRepository) : ViewModel() {
+    
+    val memberResult  = MutableLiveData<MemberResultType>()
+
+    fun getAllGroup(){
+        viewModelScope.launch (Dispatchers.IO){
+            memberResult.postValue(Resource.Loading())
+            delay(1000)
+            memberResult.postValue(repository.getAllGroup())
+        }
     }
 }
