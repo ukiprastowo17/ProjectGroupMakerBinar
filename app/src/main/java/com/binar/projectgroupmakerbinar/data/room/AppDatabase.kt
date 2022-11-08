@@ -59,13 +59,11 @@ class DatabaseSeederCallback(private val context: Context) : RoomDatabase.Callba
     }
 
 
-
     private fun prepopulateNotes(): List<MemberEntity> {
         return mutableListOf(
             MemberEntity( name = "Member 1", note="", group = ""),
             MemberEntity( name = "Member 2", note="",group = ""),
             MemberEntity( name = "Member 3", note="",group = ""),
-
         )
     }
 }

@@ -9,7 +9,6 @@ interface MemberDataSource {
 
     suspend fun getAllMembersById(id: Int): MemberEntity
 
-
     suspend fun insertMember(memberEntity: MemberEntity): Long
 
     suspend fun insertMembers(memberEntity: List<MemberEntity>)

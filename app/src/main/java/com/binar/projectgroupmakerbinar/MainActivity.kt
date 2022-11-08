@@ -6,7 +6,6 @@ import com.binar.projectgroupmakerbinar.adapter.ListGroupListAdapter
 import com.binar.projectgroupmakerbinar.data.DummyListGroupDataSource
 import com.binar.projectgroupmakerbinar.data.ListGroupDataSource
 import com.binar.projectgroupmakerbinar.databinding.ActivityMainBinding
-import com.binar.projectgroupmakerbinar.databinding.DashboardListMemberBinding
 
 class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy {
