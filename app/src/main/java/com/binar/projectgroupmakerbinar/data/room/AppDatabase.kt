@@ -19,7 +19,6 @@ import kotlinx.coroutines.launch
 abstract class AppDatabase : RoomDatabase() {
     abstract fun memberDao(): MemberDao
 
-
     companion object {
         private const val DB_NAME = "RANDOMAPP.db"
 
