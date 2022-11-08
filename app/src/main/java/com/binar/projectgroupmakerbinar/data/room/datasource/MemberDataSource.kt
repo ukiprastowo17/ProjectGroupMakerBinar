@@ -5,12 +5,11 @@ import com.binar.projectgroupmakerbinar.data.room.entity.MemberEntity
 
 
 interface MemberDataSource {
-    suspend fun getAllMembers(): List<MemberEntity>
+    suspend fun getAllMembers(groupNa: String): List<MemberEntity>
     suspend fun getAllGroup(): List<MemberEntity>
     suspend fun getAllMembersById(id: Int): MemberEntity
-
+    suspend fun deleteGroup(groupNa: String): String
     suspend fun insertMember(memberEntity: MemberEntity): Long
-
     suspend fun insertMembers(memberEntity: List<MemberEntity>)
 
     suspend fun deleteMember(memberEntity: MemberEntity): Int
@@ -19,13 +18,19 @@ interface MemberDataSource {
 }
 
 class MemberDataSourceImpl(private val dao: MemberDao) : MemberDataSource {
-    override suspend fun getAllMembers(): List<MemberEntity> {
-        return dao.getAllMembers()
+    override suspend fun getAllMembers(groupNa: String): List<MemberEntity> {
+        return dao.getAllMembers(groupNa)
+    }
+
+    override suspend fun deleteGroup(groupNa: String): String {
+        dao.deleteGroup(groupNa)
+        return "Delete"
     }
 
     override suspend fun getAllGroup(): List<MemberEntity> {
         return dao.getAllGroup()
     }
+
 
     override suspend fun getAllMembersById(id: Int): MemberEntity {
        return dao.getAllMembersById(id)

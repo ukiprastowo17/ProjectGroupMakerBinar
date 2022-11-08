@@ -13,6 +13,7 @@ import com.binar.projectgroupmakerbinar.base.GenericViewModelFactory
 import com.binar.projectgroupmakerbinar.data.repository.LocalRepository
 import com.binar.projectgroupmakerbinar.data.room.entity.MemberEntity
 import com.binar.projectgroupmakerbinar.databinding.ItemListBinding
+import com.binar.projectgroupmakerbinar.databinding.ItemMembersBinding
 import com.binar.projectgroupmakerbinar.di.ServiceLocator
 import com.binar.projectgroupmakerbinar.ui.member.AddMember
 import com.binar.projectgroupmakerbinar.ui.member.MainViewModel
@@ -21,11 +22,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-
-typealias MemberResultType = Resource<List<MemberEntity>>
-
-class MembersAdapter(private val itemClick: (MemberEntity) -> Unit) :
-    RecyclerView.Adapter<MembersAdapter.NoteViewHolder>() {
+class ListMembersAdapter(private val itemClick: (MemberEntity) -> Unit) :
+    RecyclerView.Adapter<ListMembersAdapter.NoteViewHolder>() {
 
     private var items: MutableList<MemberEntity> = mutableListOf()
 
@@ -36,7 +34,7 @@ class MembersAdapter(private val itemClick: (MemberEntity) -> Unit) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
-        val binding = ItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemMembersBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return NoteViewHolder(binding, itemClick)
     }
 
@@ -50,33 +48,31 @@ class MembersAdapter(private val itemClick: (MemberEntity) -> Unit) :
 
 
     class NoteViewHolder(
-        private val binding: ItemListBinding,
+        private val binding: ItemMembersBinding,
         val itemClick: (MemberEntity) -> Unit,
     ) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bindView(item: MemberEntity,context: Context) {
-            binding.tvListTitle.text = item.group
-            binding.tvListDesc.text = item.note
+            binding.tvListTitle.text = item.name
 
 //            with(item) {
 //                itemView.setOnClickListener { itemClick(this) }
 //            }
 
-            binding.btAddMember.setOnClickListener {
-                val intent = Intent(itemView.context, AddMember::class.java).also {
-                    it.putExtra("GROUPNAME", item.group)
-                }
-                itemView.context.startActivity(intent)
-            }
+//            binding.btAddMember.setOnClickListener {
+//                val intent = Intent(itemView.context, AddMember::class.java).also {
+//                    it.putExtra("GROUPNAME", item.group)
+//                }
+//                itemView.context.startActivity(intent)
+//            }
 
-            binding.btDeleteList.setOnClickListener {
+            binding.btDeleteMember.setOnClickListener {
                 Toast.makeText(
                     itemView.context,
-                    "Deleted " + item.group ,
+                    "Deleted " + item.name ,
                     Toast.LENGTH_SHORT
                 ).show()
-
             }
         }
     }

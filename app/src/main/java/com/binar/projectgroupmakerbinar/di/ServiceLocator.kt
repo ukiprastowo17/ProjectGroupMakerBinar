@@ -9,6 +9,10 @@ import com.binar.projectgroupmakerbinar.data.repository.LocalRepositoryImpl
 import com.binar.projectgroupmakerbinar.data.room.AppDatabase
 import com.binar.projectgroupmakerbinar.data.room.dao.MemberDao
 import com.binar.projectgroupmakerbinar.data.room.datasource.*
+import com.binar.projectgroupmakerbinar.ui.main.adapter.MembersAdapter
+import com.binar.projectgroupmakerbinar.ui.member.AddMember
+import com.binar.projectgroupmakerbinar.ui.member.CustomDialogAddMember
+import com.binar.projectgroupmakerbinar.ui.member.DashboardListMember
 
 object ServiceLocator {
 
@@ -24,19 +28,21 @@ object ServiceLocator {
         return provideAppDatabase(context).memberDao()
     }
 
-    fun provideNotesDataSource(context: Context): MemberDataSource {
+    fun provideMemberDataSource(context: Context): MemberDataSource {
         return MemberDataSourceImpl(provideMemberDao(context))
     }
 
-    fun provideUserPreferenceDataSource(context: Context): SharedPreferenceDataSource {
-        return SharedPreferenceDataSourceImpl(provideUserPreference(context))
-    }
 
-    fun provideLocalRepository(context: Context): LocalRepository {
+    fun provideLocalRepository(context: DashboardListMember): LocalRepository {
         return LocalRepositoryImpl(
-            provideNotesDataSource(context)
+            provideMemberDataSource(context)
         )
     }
 
-
+    fun provideLocalRepositoryAddMember(context: AddMember): LocalRepository {
+        return LocalRepositoryImpl(
+            provideMemberDataSource(context)
+        )
+    }
+    
 }

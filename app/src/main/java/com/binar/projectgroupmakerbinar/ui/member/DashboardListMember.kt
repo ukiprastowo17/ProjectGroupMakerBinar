@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.binar.projectgroupmakerbinar.adapter.ListGroupListAdapter
 import com.binar.projectgroupmakerbinar.base.GenericViewModelFactory
 import com.binar.projectgroupmakerbinar.data.DummyListGroupDataSource
 import com.binar.projectgroupmakerbinar.data.ListGroupDataSource
@@ -41,26 +40,17 @@ class DashboardListMember : AppCompatActivity() {
         }
     }
 
-//    private val adapter: ListGroupListAdapter by lazy {
-//        ListGroupListAdapter()
-//    }
-
-    private val dataSource: ListGroupDataSource by lazy {
-        DummyListGroupDataSource()
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         supportActionBar?.hide()
-
         initRecyclerView()
         observeData()
         initData()
-//        setupList()
         binding.apply {
             btAddList.setOnClickListener {
-                CustomDialogAddList("DRAW").apply {
+                CustomDialogAddList().apply {
 
                 }.show(supportFragmentManager, null)
             }
@@ -103,7 +93,6 @@ class DashboardListMember : AppCompatActivity() {
         binding.rvListGroup.adapter = this@DashboardListMember.adapter
     }
 
-
     private fun showLoading() {
 //        binding.pbNotes.isVisible = true
 //        binding.tvError.isVisible = false
@@ -120,18 +109,11 @@ class DashboardListMember : AppCompatActivity() {
     }
 
 
-    private fun setupList() {
-        binding.rvListGroup.apply {
-            adapter = this@DashboardListMember.adapter
-        }
-//        adapter.setItems(dataSource.getListGroup())
-    }
 
 }
 
 typealias MemberResultType = Resource<List<MemberEntity>>
 class MainViewModel(private val repository: LocalRepository) : ViewModel() {
-    
     val memberResult  = MutableLiveData<MemberResultType>()
 
     fun getAllGroup(){

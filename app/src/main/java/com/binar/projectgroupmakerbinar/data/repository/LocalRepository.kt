@@ -11,8 +11,9 @@ Written with love by Muhammad Hermas Yuda Pamungkas
 Github : https://github.com/hermasyp
  **/
 interface LocalRepository {
-    suspend fun getAllMember(): Resource<List<MemberEntity>>
+    suspend fun getAllMember(groupNa: String): Resource<List<MemberEntity>>
     suspend fun getAllGroup(): Resource<List<MemberEntity>>
+    suspend fun deleteGroup(groupNa: String): Resource<String>
     suspend fun deleteMember(memberEntity: MemberEntity): Resource<Number>
     suspend fun insertMember(memberEntity: MemberEntity): Resource<Number>
 }
@@ -20,8 +21,12 @@ interface LocalRepository {
 class LocalRepositoryImpl(
     private val memberDataSource: MemberDataSource,
 ) : LocalRepository {
-    override suspend fun getAllMember(): Resource<List<MemberEntity>> {
-        return proceed { memberDataSource.getAllMembers()}
+    override suspend fun getAllMember(groupNa: String): Resource<List<MemberEntity>> {
+        return proceed { memberDataSource.getAllMembers(groupNa)}
+    }
+
+    override suspend fun deleteGroup(groupNa: String): Resource<String> {
+        return proceed { memberDataSource.deleteGroup(groupNa)}
     }
 
     override suspend fun getAllGroup(): Resource<List<MemberEntity>> {
