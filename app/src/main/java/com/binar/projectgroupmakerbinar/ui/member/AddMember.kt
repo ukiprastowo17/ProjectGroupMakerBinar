@@ -21,7 +21,7 @@ class AddMember : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        supportActionBar?.hide()
+        supportActionBar?.hide() ;
         setupList()
         binding.apply {
             btAddMember.setOnClickListener {
