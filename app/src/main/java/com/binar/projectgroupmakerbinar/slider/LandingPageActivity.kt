@@ -1,5 +1,6 @@
 package com.binar.projectgroupmakerbinar.slider
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.view.isInvisible
@@ -50,7 +51,16 @@ class LandingPageActivity : AppCompatActivity() {
             binding.vpIntro.setCurrentItem(nextIndex, true)
         }else{
             //Todo: navigate to Home Activity
+            navigateToMenuFragment()
         }
+    }
+
+    private fun navigateToMenuFragment(){
+        /*ServiceLocator.providePreferenceDataSource(this@LandingPageActivity).setSkipIntro(true)
+        val i = Intent(this@LandingPageActivity, HomeActivity::class.java)
+        startActivity(i)
+        finish()
+        }*/
     }
 
     private fun initFragmentViewPager() {

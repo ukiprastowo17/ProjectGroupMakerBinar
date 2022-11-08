@@ -6,16 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.binar.projectgroupmakerbinar.R
+import com.binar.projectgroupmakerbinar.databinding.DialogDeleteBinding
 
-
-class DeleteHistoryDialog : DialogFragment() {
+class DeleteDialog : DialogFragment() {
+    private lateinit var binding: DialogDeleteBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.dialog_delete_history, container, false)
+        binding = DialogDeleteBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
