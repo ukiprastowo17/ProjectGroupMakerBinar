@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.binar.projectgroupmakerbinar.constant.CommonConstant
 import com.binar.projectgroupmakerbinar.data.room.entity.Group
 import com.binar.projectgroupmakerbinar.databinding.ItemGroupRowBinding
+import com.binar.projectgroupmakerbinar.ui.member.MemberFormActivity
 
 
 class GroupAdapter(private val listener:OnCLickListener) :

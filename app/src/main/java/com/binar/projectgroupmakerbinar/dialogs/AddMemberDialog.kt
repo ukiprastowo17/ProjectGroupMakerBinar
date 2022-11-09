@@ -9,25 +9,27 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import com.binar.projectgroupmakerbinar.R
 import com.binar.projectgroupmakerbinar.data.room.entity.Member
-import com.binar.projectgroupmakerbinar.databinding.CustomDialogAddMemberBinding
+import com.binar.projectgroupmakerbinar.databinding.ActivityAddMemberDialogBinding
+import com.binar.projectgroupmakerbinar.databinding.CustomDialogAddListBinding
+
 
 class AddMemberDialog : DialogFragment() {
 
-    private lateinit var binding: CustomDialogAddMemberBinding
+    private lateinit var binding: ActivityAddMemberDialogBinding
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val inflater = LayoutInflater.from(requireContext())
-        binding = CustomDialogAddMemberBinding.inflate(inflater, null, false)
+        binding = ActivityAddMemberDialogBinding.inflate(inflater, null, false)
 
         val builder = AlertDialog.Builder(requireContext()).apply {
             setView(binding.root)
 
-            binding.btSaveList.setOnClickListener {
+            binding.btnMemberAdd.setOnClickListener {
                 /*val member = getData() ?: return@setOnClickListener*/
-                if (binding.etMemberName.text.isEmpty()) {
+                if (binding.edtNameMemberAdd.text.isEmpty()) {
                     showMessage(R.string.text_not_blank)
                 } else {
-                    val memberName = binding.etMemberName.text.toString()
+                    val memberName = binding.edtNameMemberAdd.text.toString()
                     val listener = requireActivity() as DialogListener
                     listener.processDialog(memberName)
                     dismiss()
@@ -39,13 +41,12 @@ class AddMemberDialog : DialogFragment() {
 
     private fun getData(): Member? {
 
-        if (binding.etMemberName.text.isEmpty()) {
+        if (binding.edtNameMemberAdd.text.isEmpty()) {
             showMessage(R.string.text_not_blank)
             return null
         }
-
         return Member(
-            nameMember = binding.etMemberName.text.toString(),
+            nameMember = binding.edtNameMemberAdd.text.toString(),
             idGroup =  ""
         )
     }

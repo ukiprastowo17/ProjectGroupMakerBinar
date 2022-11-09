@@ -1,9 +1,6 @@
 package com.binar.projectgroupmakerbinar.constant
 
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/feature/feature-member
 object CommonConstant {
     const val UNSET_ID = -1
     const val EXTRAS_ID_NOTE = "EXTRAS_ID_NOTE"

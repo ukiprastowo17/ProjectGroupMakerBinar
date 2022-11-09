@@ -20,7 +20,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 
-@Database(entities = [MemberEntity::class], version = 1, exportSchema = true)
+@Database(entities = [Member::class, Group::class, ResultData::class], version = 4, exportSchema = true)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun memberDao(): MemberDao
     abstract fun groupDao(): GroupDao
@@ -44,6 +44,7 @@ abstract class AppDatabase : RoomDatabase() {
                     .addCallback(DatabaseSeederCallback(context))
                     .build()
                 INSTANCE = instance
+                // return instance
                 instance
             }
         }
@@ -59,11 +60,18 @@ class DatabaseSeederCallback(private val context: Context) : RoomDatabase.Callba
     override fun onCreate(db: SupportSQLiteDatabase) {
         super.onCreate(db)
         scope.launch {
-
+//            AppDatabase.getInstance(context).memberDao().insertMembers(prepopulateNotes())
         }
     }
 
 
 
-
+//    private fun prepopulateNotes(): List<Member> {
+////        return mutableListOf(
+////            Member( name = "Member 1", players = ""),
+////            Member( name = "Member 1", players = ""),
+////            Member( name = "Member 1", players = ""),
+////
+////        )
+//    }
 }

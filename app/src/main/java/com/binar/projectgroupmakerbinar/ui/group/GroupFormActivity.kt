@@ -16,7 +16,7 @@ import com.binar.projectgroupmakerbinar.databinding.ActivityGroupFormBinding
 import com.binar.projectgroupmakerbinar.di.ServiceLocator
 import com.binar.projectgroupmakerbinar.dialogs.GroupListDialog
 import com.binar.projectgroupmakerbinar.ui.group.adapter.GroupAdapter
-import com.binar.projectgroupmakerbinar.wraper.Resource
+import com.binar.projectgroupmakerbinar.wrapper.Resource
 
 
 class GroupFormActivity : BaseActivity<ActivityGroupFormBinding>(ActivityGroupFormBinding::inflate),

@@ -6,9 +6,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.binar.projectgroupmakerbinar.constant.CommonConstant
+import com.binar.projectgroupmakerbinar.data.repository.LocalRepository
 import com.binar.projectgroupmakerbinar.data.repository.LocalRepositoryImpl
 import com.binar.projectgroupmakerbinar.data.room.entity.Member
-import com.catnip.notepadku.wrapper.Resource
+import com.binar.projectgroupmakerbinar.wrapper.Resource
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -18,7 +19,7 @@ import kotlinx.coroutines.launch
 typealias InitialDataResultType = Resource<List<Member>>
 
 
-class MemberViewModel(private val repository: LocalRepositoryImpl.LocalRepository) : ViewModel() {
+class MemberViewModel(private val repository: LocalRepository) : ViewModel() {
 
     var memberId: Int = CommonConstant.UNSET_ID
 
@@ -41,14 +42,7 @@ class MemberViewModel(private val repository: LocalRepositoryImpl.LocalRepositor
 
 
 
-    fun getPlayersByPreset(id : String){
-        Log.i("datadiri2", id)
-        viewModelScope.launch(Dispatchers.IO){
-            initialDataResult.postValue(Resource.Loading())
-            delay(1000)
-            initialDataResult.postValue(repository.getPlayersByPreset(id))
-        }
-    }
+
 
     fun getAllNotes(){
         viewModelScope.launch(Dispatchers.IO){
