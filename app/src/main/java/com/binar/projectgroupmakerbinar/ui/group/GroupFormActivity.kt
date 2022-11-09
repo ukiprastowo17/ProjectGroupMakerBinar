@@ -62,7 +62,10 @@ class GroupFormActivity : BaseActivity<ActivityGroupFormBinding>(ActivityGroupFo
                     showLoading()
                 }
                 is Resource.Success -> {
+
                     showData(it.data)
+
+
                 }
             }
         }
@@ -93,12 +96,11 @@ class GroupFormActivity : BaseActivity<ActivityGroupFormBinding>(ActivityGroupFo
                 is Resource.Success -> {
 
                     binding.pbForm.isVisible = false
-                    finish()
+
                     Toast.makeText(this, "Update data Success", Toast.LENGTH_SHORT).show()
                 }
                 is Resource.Error -> {
                     binding.pbForm.isVisible = false
-                    finish()
                     Toast.makeText(this, "Error when update data", Toast.LENGTH_SHORT).show()
                 }
             }
@@ -110,12 +112,11 @@ class GroupFormActivity : BaseActivity<ActivityGroupFormBinding>(ActivityGroupFo
                 }
                 is Resource.Success -> {
                     binding.pbForm.isVisible = false
-                    finish()
+                    initData()
                     Toast.makeText(this, "Delete data Success", Toast.LENGTH_SHORT).show()
                 }
                 is Resource.Error -> {
                     binding.pbForm.isVisible = false
-                    finish()
                     Toast.makeText(this, "Error when delete data", Toast.LENGTH_SHORT).show()
                 }
             }
@@ -179,6 +180,7 @@ class GroupFormActivity : BaseActivity<ActivityGroupFormBinding>(ActivityGroupFo
             .setMessage("Are you sure want to delete ${group.name_group} ?")
             .setPositiveButton(getString(R.string.text_yes_dialog)) { dialog, _ ->
                 viewModel.deleteGroup(group)
+                viewModel.deleteMemberByGroup(group.id.toString())
                 Toast.makeText(this, "${group.name_group} Successfully Deleted", Toast.LENGTH_SHORT)
                     .show()
                 dialog.dismiss()

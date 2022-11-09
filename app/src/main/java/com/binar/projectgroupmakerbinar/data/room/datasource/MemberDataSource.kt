@@ -14,6 +14,8 @@ interface MemberDataSource {
 
     suspend fun deleteMember(member: Member): Int
 
+    suspend fun deleteMemberByGroup (id: String): Int
+
     suspend fun updateMember(member: Member): Int
 
     suspend fun getAllGroupByGroup(id:String): List<Member>
@@ -39,6 +41,10 @@ class MemberDataSourceImpl(private val dao: MemberDao) : MemberDataSource {
 
     override suspend fun deleteMember(member: Member): Int {
         return dao.deleteMember(member)
+    }
+
+    override suspend fun deleteMemberByGroup(id: String): Int {
+        return dao.deleteMemberByGroup(id)
     }
 
     override suspend fun updateMember(member: Member): Int {

@@ -29,6 +29,10 @@ interface MemberDao {
     @Delete
     suspend fun deleteMember(member: Member) : Int
 
+
+    @Query("DELETE FROM " + CommonConstant.DATABASE_TABLE + "  WHERE " + CommonConstant.GROUP_ID +" == :id")
+    suspend fun deleteMemberByGroup(id: String) : Int
+
     @Update
     suspend fun updateMember(member: Member) : Int
 

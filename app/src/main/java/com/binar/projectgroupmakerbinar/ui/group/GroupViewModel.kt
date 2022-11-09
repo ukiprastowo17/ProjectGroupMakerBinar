@@ -41,6 +41,14 @@ class GroupViewModel(private val repository: LocalRepository) : ViewModel() {
         }
     }
 
+    fun deleteMemberByGroup(id: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            deleteResult.postValue(Resource.Loading())
+            delay(1000)
+            deleteResult.postValue(repository.deleteMemberByGroup(id))
+        }
+    }
+
     fun updateGroup(group: Group) {
         viewModelScope.launch(Dispatchers.IO) {
             updateResult.postValue(Resource.Loading())

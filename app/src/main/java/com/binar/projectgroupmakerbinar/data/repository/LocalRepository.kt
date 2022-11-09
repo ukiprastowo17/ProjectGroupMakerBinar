@@ -23,6 +23,7 @@ interface LocalRepository {
 
     suspend fun getAllGroups(): Resource<List<Group>>
     suspend fun deleteGroup(group: Group): Resource<Number>
+    suspend fun  deleteMemberByGroup (id: String): Resource<Number>
     suspend fun updateGroup(group: Group): Resource<Number>
     suspend fun insertGroup(group: Group): Resource<Number>
 
@@ -76,6 +77,10 @@ class LocalRepositoryImpl(
 
     override suspend fun deleteGroup(group: Group): Resource<Number> {
         return proceed { groupDataSource.deleteGroup(group) }
+    }
+
+    override suspend fun deleteMemberByGroup(id: String): Resource<Number> {
+        return proceed { memberDataSource.deleteMemberByGroup(id) }
     }
 
     override suspend fun updateGroup(group: Group): Resource<Number> {
