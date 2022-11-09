@@ -77,7 +77,7 @@
     <string name="text_no_dialog">No</string>
     <string name="text_yes_dialog">Yes</string>
     <string name="text_delete_dialog">Delete</string>
-    <string name="text_empty_notes">You don\'t have any notes</string>
+    <string name="text_empty_notes">You don\'t have any member</string>
     <string name="current_preset">Group Name:</string>
     <string name="current_preset2">Current Preset:</string>
     <string name="player_list"><u>List of Players</u></string>

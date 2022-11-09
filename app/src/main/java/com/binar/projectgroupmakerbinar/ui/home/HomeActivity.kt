@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.binar.projectgroupmakerbinar.databinding.ActivityHomeBinding
 import com.binar.projectgroupmakerbinar.ui.aboutpage.menu.MenuAboutActivity
 import com.binar.projectgroupmakerbinar.ui.group.GroupFormActivity
+import com.binar.projectgroupmakerbinar.ui.history.HistoryFormActivity
 
 class HomeActivity : AppCompatActivity() {
 
@@ -28,8 +29,8 @@ class HomeActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             cvHistory.setOnClickListener {
-//                val intent = Intent(this@HomeActivity, HistoryFormActivity::class.java)
-//                startActivity(intent)
+                val intent = Intent(this@HomeActivity, HistoryFormActivity::class.java)
+                startActivity(intent)
             }
             cvAbout.setOnClickListener {
                 val intent = Intent(this@HomeActivity, MenuAboutActivity::class.java)

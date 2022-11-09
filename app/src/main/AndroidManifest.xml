@@ -81,6 +81,28 @@
             android:screenOrientation="portrait" >
         </activity>
 
+        <activity
+            android:name=".ui.history.HistoryFormActivity"
+            android:label="@string/app_name"
+            android:exported="false"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <activity
+            android:name=".ui.history.HistoryDetailFormActivity"
+            android:label="@string/app_name"
+            android:exported="false"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <activity
+            android:name=".ui.random.RandomizeActivity"
+            android:label="@string/app_name"
+            android:exported="false"
+            android:screenOrientation="portrait" >
+        </activity>
+
+
 
 
 
