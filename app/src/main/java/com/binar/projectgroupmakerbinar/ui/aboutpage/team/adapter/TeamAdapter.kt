@@ -1,4 +1,4 @@
-package com.binar.projectgroupmakerbinar.adapter
+package com.binar.projectgroupmakerbinar.ui.aboutpage.team.adapter
 
 import android.content.Context
 import android.content.Intent
@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.binar.projectgroupmakerbinar.constant.CommonConstant
 import com.binar.projectgroupmakerbinar.databinding.ItemProfileMemberBinding
-import com.binar.projectgroupmakerbinar.ui.profile.ProfileActivity
-import com.binar.projectgroupmakerbinar.ui.team.TeamActivity
+import com.binar.projectgroupmakerbinar.ui.aboutpage.profile.ProfileActivity
+import com.binar.projectgroupmakerbinar.ui.aboutpage.team.TeamActivity
 
 class TeamAdapter(private val list: List<TeamActivity.teams>, val context : Context)
     : RecyclerView.Adapter<TeamAdapter.TeamViewHolder>() {

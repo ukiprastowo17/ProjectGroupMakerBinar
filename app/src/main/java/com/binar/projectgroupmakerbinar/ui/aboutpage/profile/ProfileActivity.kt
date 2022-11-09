@@ -1,9 +1,8 @@
-package com.binar.projectgroupmakerbinar.ui.profile
+package com.binar.projectgroupmakerbinar.ui.aboutpage.profile
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import coil.load
-import com.binar.projectgroupmakerbinar.R
 import com.binar.projectgroupmakerbinar.constant.CommonConstant
 import com.binar.projectgroupmakerbinar.databinding.ActivityProfileBinding
 

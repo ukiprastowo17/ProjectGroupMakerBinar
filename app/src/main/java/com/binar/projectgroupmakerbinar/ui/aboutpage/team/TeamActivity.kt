@@ -1,14 +1,10 @@
-package com.binar.projectgroupmakerbinar.ui.team
+package com.binar.projectgroupmakerbinar.ui.aboutpage.team
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.binar.projectgroupmakerbinar.adapter.TeamAdapter
 import com.binar.projectgroupmakerbinar.databinding.ActivityTeamBinding
-import com.binar.projectgroupmakerbinar.ui.about.AboutActivity
-import com.binar.projectgroupmakerbinar.ui.profile.*
+import com.binar.projectgroupmakerbinar.ui.aboutpage.team.adapter.TeamAdapter
 
 class TeamActivity : AppCompatActivity() {
 

@@ -1,12 +1,11 @@
-package com.binar.projectgroupmakerbinar.ui.menu
+package com.binar.projectgroupmakerbinar.ui.aboutpage.menu
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.binar.projectgroupmakerbinar.R
 import com.binar.projectgroupmakerbinar.databinding.ActivityMenuAboutBinding
-import com.binar.projectgroupmakerbinar.ui.about.AboutActivity
-import com.binar.projectgroupmakerbinar.ui.team.TeamActivity
+import com.binar.projectgroupmakerbinar.ui.aboutpage.about.AboutActivity
+import com.binar.projectgroupmakerbinar.ui.aboutpage.team.TeamActivity
 
 class MenuAboutActivity : AppCompatActivity() {
     private val binding: ActivityMenuAboutBinding by lazy {
