@@ -9,15 +9,15 @@ import com.binar.projectgroupmakerbinar.data.room.entity.Member
 @Dao
 interface MemberDao {
 
-    @Query("SELECT * FROM " + CommonConstant.DATABASE_TABLE + " ORDER BY " + CommonConstant.KEY_ROWID + " DESC")
+    @Query("SELECT * FROM " + CommonConstant.DATABASE_TABLE + " ORDER BY " + CommonConstant.KEY_ROWID + " ASC")
     suspend fun getAllMember() : List<Member>
 
 
-    @Query("SELECT * FROM " + CommonConstant.DATABASE_TABLE + " WHERE "+ CommonConstant.KEY_ROWID +" == :id" + " ORDER BY " + CommonConstant.KEY_ROWID + " DESC")
+    @Query("SELECT * FROM " + CommonConstant.DATABASE_TABLE + " WHERE "+ CommonConstant.KEY_ROWID +" == :id" + " ORDER BY " + CommonConstant.KEY_ROWID + " ASC")
     suspend fun getAllMembersById(id : Int) : Member
 
 
-    @Query("SELECT * FROM " + CommonConstant.DATABASE_TABLE+ " where " + CommonConstant.KEY_ID_GROUP + "== :id" + " ORDER BY " + CommonConstant.KEY_ROWID + " DESC")
+    @Query("SELECT * FROM " + CommonConstant.DATABASE_TABLE+ " where " + CommonConstant.KEY_ID_GROUP + "== :id" + " ORDER BY " + CommonConstant.KEY_ROWID + " ASC")
     suspend fun getAllGroupByGroup(id: String) : List<Member>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
