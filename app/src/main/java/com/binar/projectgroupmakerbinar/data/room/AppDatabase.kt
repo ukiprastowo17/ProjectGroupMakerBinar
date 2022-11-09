@@ -20,7 +20,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 
-@Database(entities = [Member::class, Group::class, ResultData::class], version = 4, exportSchema = true)
+@Database(entities = [MemberEntity::class], version = 1, exportSchema = true)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun memberDao(): MemberDao
     abstract fun groupDao(): GroupDao
