@@ -1,47 +1,48 @@
 package com.binar.projectgroupmakerbinar.data.room.datasource
 
 import com.binar.projectgroupmakerbinar.data.room.dao.MemberDao
-import com.binar.projectgroupmakerbinar.data.room.entity.MemberEntity
+import com.binar.projectgroupmakerbinar.data.room.entity.Member
 
 
 interface MemberDataSource {
-    suspend fun getAllMembers(): List<MemberEntity>
+    suspend fun getAllMember(): List<Member>
 
-    suspend fun getAllMembersById(id: Int): MemberEntity
+    suspend fun getAllMembersById(id: Int): Member
 
 
-    suspend fun insertMember(memberEntity: MemberEntity): Long
+    suspend fun insertMember(member: Member): Long
 
-    suspend fun insertMembers(memberEntity: List<MemberEntity>)
+    suspend fun deleteMember(member: Member): Int
 
-    suspend fun deleteMember(memberEntity: MemberEntity): Int
+    suspend fun updateMember(member: Member): Int
 
-    suspend fun updateMember(memberEntity: MemberEntity): Int
+    suspend fun getAllGroupByGroup(id:String): List<Member>
 }
 
 class MemberDataSourceImpl(private val dao: MemberDao) : MemberDataSource {
-    override suspend fun getAllMembers(): List<MemberEntity> {
-        return dao.getAllMembers()
+    override suspend fun getAllMember(): List<Member> {
+        return dao.getAllMember()
     }
 
-    override suspend fun getAllMembersById(id: Int): MemberEntity {
+    override suspend fun getAllMembersById(id: Int): Member {
        return dao.getAllMembersById(id)
     }
 
-    override suspend fun insertMember(memberEntity: MemberEntity): Long {
-        return dao.insertMember(memberEntity)
+    override suspend fun getAllGroupByGroup(id: String): List<Member> {
+        return dao.getAllGroupByGroup(id)
     }
 
-    override suspend fun insertMembers(memberEntity: List<MemberEntity>) {
-        return dao.insertMembers(memberEntity)
+
+    override suspend fun insertMember(member: Member): Long {
+        return dao.insertMember(member)
     }
 
-    override suspend fun deleteMember(memberEntity: MemberEntity): Int {
-        return dao.deleteMember(memberEntity)
+    override suspend fun deleteMember(member: Member): Int {
+        return dao.deleteMember(member)
     }
 
-    override suspend fun updateMember(memberEntity: MemberEntity): Int {
-        return dao.updateMember(memberEntity)
+    override suspend fun updateMember(member: Member): Int {
+        return dao.updateMember(member)
     }
 
 
