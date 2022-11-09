@@ -107,4 +107,32 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+
+    <!-- Custom Template -->
+    <!-- Title Logo Home Layer 1 (Bold) -->
+    <style name="TextTitleHome.Bold" parent="Theme.ProjectGroupMakerBinar">
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:layout_marginTop">120dp</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">40sp</item>
+    </style>
+
+    <!-- Title Logo Home Layer 2 (Light) -->
+    <style name="TextTitleHome.Light" parent="Theme.ProjectGroupMakerBinar">
+        <item name="android:layout_marginTop">-25dp</item>
+        <item name="android:fontFamily">@font/poppins_light</item>
+        <item name="android:letterSpacing">0.2</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">42sp</item>
+    </style>
+
+    <!-- List Text -->
+    <style name="TextList" parent="Theme.ProjectGroupMakerBinar">
+        <item name="android:drawablePadding">5dp</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
 </resources>
