@@ -64,14 +64,23 @@ class MemberFormActivity : BaseActivity<ActivityMemberFormBinding>(ActivityMembe
 
 
         binding.btnRandom.setOnClickListener {
-            val intent = Intent(this@MemberFormActivity, RandomizeActivity::class.java)
-            intent.putExtra("id_group", idGroup)
-            intent.putExtra("name_group", nameGroup)
-            intent.putExtra("numberOfTeams", Integer.parseInt(binding.edtJumlahTim.text.toString()))
-            intent.putStringArrayListExtra("data", playersArrList)
-            startActivity(intent)
-            Toast.makeText(this@MemberFormActivity, "Go To About Activity", Toast.LENGTH_SHORT)
-                .show()
+
+            var dataJumlah = binding.edtJumlahTim.text.toString()
+            if (dataJumlah.isEmpty()){
+                Toast.makeText(this@MemberFormActivity, "Input Jumlah Tim", Toast.LENGTH_SHORT)
+                    .show()
+            }else{
+                val intent = Intent(this@MemberFormActivity, RandomizeActivity::class.java)
+                intent.putExtra("id_group", idGroup)
+                intent.putExtra("name_group", nameGroup)
+                intent.putExtra("numberOfTeams", Integer.parseInt(binding.edtJumlahTim.text.toString()))
+                intent.putStringArrayListExtra("data", playersArrList)
+                startActivity(intent)
+
+            }
+
+
+
         }
 
 
