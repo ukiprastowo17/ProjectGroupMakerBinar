@@ -1,8 +1,8 @@
 package com.binar.projectgroupmakerbinar.home
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import com.binar.projectgroupmakerbinar.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
@@ -22,28 +22,16 @@ class HomeActivity : AppCompatActivity() {
     private fun navigateToMenu() {
         with(binding) {
             cvMember.setOnClickListener {
-                /*val intent = Intent(this@HomeActivity, MemberActivity::class.java)
-                startActivity(intent)*/
-                Toast.makeText(this@HomeActivity, "Go To Member Activity", Toast.LENGTH_SHORT)
-                    .show()
-            }
-            cvGroup.setOnClickListener {
-                /*val intent = Intent(this@HomeActivity, GroupActivity::class.java)
-                startActivity(intent)*/
-                Toast.makeText(this@HomeActivity, "Go To Group Activity", Toast.LENGTH_SHORT)
-                    .show()
+                val intent = Intent(this@HomeActivity, GroupFormActivity::class.java)
+                startActivity(intent)
             }
             cvHistory.setOnClickListener {
-                /*val intent = Intent(this@HomeActivity, HistoryActivity::class.java)
-                startActivity(intent)*/
-                Toast.makeText(this@HomeActivity, "Go To Group Result Activity", Toast.LENGTH_SHORT)
-                    .show()
+                val intent = Intent(this@HomeActivity, HistoryFormActivity::class.java)
+                startActivity(intent)
             }
             cvAbout.setOnClickListener {
-                /*val intent = Intent(this@HomeActivity, AboutActivity::class.java)
-                startActivity(intent)*/
-                Toast.makeText(this@HomeActivity, "Go To About Activity", Toast.LENGTH_SHORT)
-                    .show()
+                val intent = Intent(this@HomeActivity, MenuAboutActivity::class.java)
+                startActivity(intent)
             }
         }
     }
