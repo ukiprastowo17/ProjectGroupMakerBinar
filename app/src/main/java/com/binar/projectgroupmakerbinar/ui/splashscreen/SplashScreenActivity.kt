@@ -5,6 +5,9 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import androidx.appcompat.app.AppCompatActivity
 import com.binar.projectgroupmakerbinar.databinding.ActivitySplashScreenBinding
+import com.binar.projectgroupmakerbinar.di.ServiceLocator
+import com.binar.projectgroupmakerbinar.ui.home.HomeActivity
+import com.binar.projectgroupmakerbinar.ui.slider.LandingPageActivity
 
 class SplashScreenActivity : AppCompatActivity() {
     private var timer: CountDownTimer? = null
@@ -17,6 +20,7 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         supportActionBar?.hide()
+        setTimerSplashScreen()
     }
 
     override fun onDestroy() {
@@ -31,9 +35,19 @@ class SplashScreenActivity : AppCompatActivity() {
         timer = object : CountDownTimer(3000, 1000) {
             override fun onTick(millisUntilFinished: Long) {}
             override fun onFinish() {
-                TODO("Not yet implemented")
-            }
+                if ( ServiceLocator.providePreferenceDataSource(this@SplashScreenActivity).isSkipIntro()){
+                    val intent = Intent(this@SplashScreenActivity, HomeActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                    finish()
+                }else{
+                    val intent = Intent(this@SplashScreenActivity, LandingPageActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                    finish()
+                }
 
+            }
         }
         timer?.start()
     }

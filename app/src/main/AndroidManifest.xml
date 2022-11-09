@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.binar.projectgroupmakerbinar">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -24,44 +26,55 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ui.slider.LandingPageActivity"
+            android:label="@string/app_name"
+            android:exported="false"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <activity
+            android:name=".ui.home.HomeActivity"
+            android:label="@string/app_name"
+            android:exported="false"
+            android:screenOrientation="portrait" >
+        </activity>
+
+
+        <activity
+            android:name=".ui.aboutpage.menu.MenuAboutActivity"
+            android:label="@string/app_name"
+            android:exported="false"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".ui.aboutpage.about.AboutActivity"
+            android:label="@string/app_name"
+            android:exported="false"
+            android:screenOrientation="portrait" >
+        </activity>
+
         <activity
             android:name=".ui.aboutpage.profile.ProfileActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
+            android:label="@string/app_name"
+            android:exported="false"
+            android:screenOrientation="portrait" >
         </activity>
 
         <activity
-            android:name="com.binar.projectgroupmakerbinar.ui.aboutpage.about.AboutActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
+            android:name=".ui.aboutpage.team.TeamActivity"
+            android:label="@string/app_name"
+            android:exported="false"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity
-            android:name="com.binar.projectgroupmakerbinar.ui.aboutpage.team.TeamActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name="com.binar.projectgroupmakerbinar.ui.aboutpage.menu.MenuAboutActivity"
-            android:exported="true"/>
 
-        <activity
-            android:name="com.binar.projectgroupmakerbinar.ui.slider.LandingPageActivity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+
+
+
+
+
     </application>
 
 </manifest>

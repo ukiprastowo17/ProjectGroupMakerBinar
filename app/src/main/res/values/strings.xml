@@ -64,4 +64,5 @@
     <string name="text_about">About</string>
     <string name="text_group_result">Group Result</string>
     <string name="text_random_group">Random Group</string>
+    <string name="text_menu">Home</string>
 </resources>

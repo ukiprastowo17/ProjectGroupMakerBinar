@@ -1,9 +1,10 @@
-package com.binar.projectgroupmakerbinar.home
+package com.binar.projectgroupmakerbinar.ui.home
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.binar.projectgroupmakerbinar.databinding.ActivityHomeBinding
+import com.binar.projectgroupmakerbinar.ui.aboutpage.menu.MenuAboutActivity
 
 class HomeActivity : AppCompatActivity() {
 
@@ -22,12 +23,12 @@ class HomeActivity : AppCompatActivity() {
     private fun navigateToMenu() {
         with(binding) {
             cvMember.setOnClickListener {
-                val intent = Intent(this@HomeActivity, GroupFormActivity::class.java)
-                startActivity(intent)
+//                val intent = Intent(this@HomeActivity, GroupFormActivity::class.java)
+//                startActivity(intent)
             }
             cvHistory.setOnClickListener {
-                val intent = Intent(this@HomeActivity, HistoryFormActivity::class.java)
-                startActivity(intent)
+//                val intent = Intent(this@HomeActivity, HistoryFormActivity::class.java)
+//                startActivity(intent)
             }
             cvAbout.setOnClickListener {
                 val intent = Intent(this@HomeActivity, MenuAboutActivity::class.java)
