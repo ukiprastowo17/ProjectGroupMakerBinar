@@ -1,16 +1,15 @@
-package com.binar.projectgroupmakerbinar.slider
+package com.binar.projectgroupmakerbinar.ui.slider
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.view.isInvisible
 import androidx.viewpager2.widget.ViewPager2
 import com.binar.projectgroupmakerbinar.R
 import com.binar.projectgroupmakerbinar.databinding.ActivityLandingPageBinding
-import com.binar.projectgroupmakerbinar.slider.model.SliderData
-import com.binar.projectgroupmakerbinar.slider.utils.ViewPagerAdapter
-import com.binar.projectgroupmakerbinar.slider.utils.getNextIndex
-import com.binar.projectgroupmakerbinar.slider.utils.getPreviousIndex
+import com.binar.projectgroupmakerbinar.ui.slider.model.SliderData
+import com.binar.projectgroupmakerbinar.ui.slider.utils.ViewPagerAdapter
+import com.binar.projectgroupmakerbinar.ui.slider.utils.getNextIndex
+import com.binar.projectgroupmakerbinar.ui.slider.utils.getPreviousIndex
 
 class LandingPageActivity : AppCompatActivity() {
     private val binding: ActivityLandingPageBinding by lazy {

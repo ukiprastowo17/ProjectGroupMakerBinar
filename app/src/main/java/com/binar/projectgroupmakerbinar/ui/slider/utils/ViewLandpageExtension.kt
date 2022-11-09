@@ -1,4 +1,4 @@
-package com.binar.projectgroupmakerbinar.slider.utils
+package com.binar.projectgroupmakerbinar.ui.slider.utils
 
 import androidx.viewpager2.widget.ViewPager2
 

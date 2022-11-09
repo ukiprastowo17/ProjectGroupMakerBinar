@@ -1,4 +1,4 @@
-package com.binar.projectgroupmakerbinar.slider
+package com.binar.projectgroupmakerbinar.ui.slider
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import coil.load
 import com.binar.projectgroupmakerbinar.databinding.FragmentSliderBinding
-import com.binar.projectgroupmakerbinar.slider.model.SliderData
+import com.binar.projectgroupmakerbinar.ui.slider.model.SliderData
 
 
 class SliderFragment : Fragment() {

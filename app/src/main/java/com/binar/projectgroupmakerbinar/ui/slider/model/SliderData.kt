@@ -1,7 +1,6 @@
-package com.binar.projectgroupmakerbinar.slider.model
+package com.binar.projectgroupmakerbinar.ui.slider.model
 
 import android.os.Parcelable
-import android.widget.ImageView
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

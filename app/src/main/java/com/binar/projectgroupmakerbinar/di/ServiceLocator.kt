@@ -2,16 +2,17 @@ package com.binar.projectgroupmakerbinar.di
 
 import android.content.Context
 
-import com.binar.aplikasibinaerteama.data.room.dao.GroupDao
-import com.binar.aplikasibinaerteama.data.room.dao.MemberDao
-import com.binar.aplikasibinaerteama.data.room.dao.ResultDao
-import com.binar.aplikasibinaerteama.data.room.datasource.*
+
 import com.binar.projectgroupmakerbinar.data.pref.Preference
 import com.binar.projectgroupmakerbinar.data.pref.PreferenceDataSource
 import com.binar.projectgroupmakerbinar.data.pref.PreferenceDataSourceImpl
 import com.binar.projectgroupmakerbinar.data.repository.LocalRepository
 import com.binar.projectgroupmakerbinar.data.repository.LocalRepositoryImpl
-import com.catnip.notepadku.data.AppDatabase
+import com.binar.projectgroupmakerbinar.data.room.AppDatabase
+import com.binar.projectgroupmakerbinar.data.room.dao.GroupDao
+import com.binar.projectgroupmakerbinar.data.room.dao.MemberDao
+import com.binar.projectgroupmakerbinar.data.room.dao.ResultDao
+import com.binar.projectgroupmakerbinar.data.room.datasource.*
 
 
 object ServiceLocator {

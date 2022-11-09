@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".slider.SliderFragment">
+    tools:context=".ui.slider.SliderFragment">
 
     <ImageView
         android:id="@+id/iv_landpage"

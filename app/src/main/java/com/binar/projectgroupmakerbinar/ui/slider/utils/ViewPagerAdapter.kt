@@ -1,4 +1,4 @@
-package com.binar.projectgroupmakerbinar.slider.utils
+package com.binar.projectgroupmakerbinar.ui.slider.utils
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
