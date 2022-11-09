@@ -13,4 +13,62 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+
+    <!-- Customize Template -->
+    <!-- Title Logo Layer 1 (Bold) -->
+    <style name="TextTitle.Bold" parent="Theme.ProjectGroupMakerBinar">
+        <item name="android:textColor">@color/blue_1</item>
+        <item name="android:textSize">38sp</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <!-- Title Logo Layer 2 (Light) -->
+    <style name="TextTitle.Light" parent="Theme.ProjectGroupMakerBinar">
+        <item name="android:textColor">@color/blue_1</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="android:fontFamily">@font/poppins_light</item>
+    </style>
+
+    <!-- Title Dialog -->
+
+    <!-- Title List Member -->
+
+    <!-- Title Landing Page -->
+
+    <!-- Text Description Light -->
+    <style name="TextDesc.Light" parent="Theme.ProjectGroupMakerBinar">
+        <item name="android:textColor">@color/black_2</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/poppins_light</item>
+    </style>
+
+    <!-- Text Description Regular -->
+
+    <!-- Text Name of Member -->
+
+    <!-- Button General -->
+    <style name="Button" parent="Theme.ProjectGroupMakerBinar">
+        <item name="android:background">@drawable/rounded_corner</item>
+        <item name="android:paddingStart">40dp</item>
+        <item name="android:paddingEnd">40dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- Button Dialog -->
+    <style name="ButtonDialog" parent="Theme.ProjectGroupMakerBinar">
+        <item name="android:background">@drawable/rounded_corner</item>
+        <item name="android:paddingStart">25dp</item>
+        <item name="android:paddingEnd">25dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+    </style>
 </resources>
