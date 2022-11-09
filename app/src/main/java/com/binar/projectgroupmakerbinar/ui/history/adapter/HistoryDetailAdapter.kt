@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.binar.projectgroupmakerbinar.data.room.entity.ResultData
+import com.binar.projectgroupmakerbinar.databinding.ItemDetailHistoryBinding
 import com.binar.projectgroupmakerbinar.databinding.ItemHistoryBinding
 import com.binar.projectgroupmakerbinar.databinding.ItemMemberBinding
 
@@ -21,7 +22,7 @@ class HistoryDetailAdapter(private val itemClick: (ResultData) -> Unit) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryDetailViewHolder {
-        val binding = ItemHistoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemDetailHistoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return HistoryDetailViewHolder(binding, itemClick)
     }
 
@@ -32,7 +33,7 @@ class HistoryDetailAdapter(private val itemClick: (ResultData) -> Unit) :
     override fun getItemCount(): Int = items.size
 
 
-    class HistoryDetailViewHolder(private val binding: ItemHistoryBinding, val itemClick: (ResultData) -> Unit) :
+    class HistoryDetailViewHolder(private val binding: ItemDetailHistoryBinding, val itemClick: (ResultData) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bindView(item: ResultData) {
