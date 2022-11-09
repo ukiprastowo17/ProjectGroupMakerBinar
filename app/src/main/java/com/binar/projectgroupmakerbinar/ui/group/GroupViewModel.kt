@@ -6,13 +6,12 @@ import androidx.lifecycle.viewModelScope
 import com.binar.projectgroupmakerbinar.constant.CommonConstant
 import com.binar.projectgroupmakerbinar.data.repository.LocalRepository
 import com.binar.projectgroupmakerbinar.data.room.entity.Group
-import com.binar.projectgroupmakerbinar.wraper.Resource
+import com.binar.projectgroupmakerbinar.wrapper.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 typealias InitDataGroupType = Resource<List<Group>>
-
 
 class GroupViewModel(private val repository: LocalRepository) : ViewModel() {
 
@@ -63,3 +62,7 @@ class GroupViewModel(private val repository: LocalRepository) : ViewModel() {
 //    }
 
 }
+
+
+
+
