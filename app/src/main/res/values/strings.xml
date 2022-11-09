@@ -65,4 +65,7 @@
     <string name="text_group_result">Group Result</string>
     <string name="text_random_group">Random Group</string>
     <string name="text_menu">Home</string>
+    <string name="text_toolbar_edit">Edit Note</string>
+    <string name="text_toolbar_insert">Create New Group</string>
+    <string name="text_empty_notes">You don\'t have any notes</string>
 </resources>
