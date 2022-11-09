@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ProjectGroupMakerBinar</string>
+    <string name="text_group_splash">Group</string>
+    <string name="text_maker_splash">Maker</string>
 </resources>
