@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="20dp"
-    android:layout_marginTop="10dp"
+    android:layout_margin="10dp"
     app:cardCornerRadius="20dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,10 +16,12 @@
 
         <TextView
             android:id="@+id/tv_group_name"
-            style="@style/TextTitleDialog"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:text="@string/tour_de_java"
+            android:fontFamily="@font/poppins_bold"
+            tools:text="Tour de Java"
+            android:textColor="@color/blue_1"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,10 +30,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_regular"
-            android:text="@string/october_27_2022"
             android:textColor="@color/black_1"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_group_name" />
+            app:layout_constraintTop_toBottomOf="@id/tv_group_name"
+            tools:text="October 27, 2022" />
 
         <TextView
             android:id="@+id/tv_count_member"
@@ -40,6 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/poppins_bold"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_date"
             tools:text="Member : 3" />
@@ -49,6 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_bold"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_count_member"
             tools:text="Group : 2" />
