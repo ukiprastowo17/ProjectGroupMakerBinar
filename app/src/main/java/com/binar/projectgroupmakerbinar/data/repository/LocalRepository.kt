@@ -1,45 +1,217 @@
 package com.binar.projectgroupmakerbinar.data.repository
 
+import androidx.lifecycle.MutableLiveData
+import com.binar.projectgroupmakerbinar.data.pref.PreferenceDataSource
+import com.binar.projectgroupmakerbinar.data.room.datasource.GroupDataSource
 import com.binar.projectgroupmakerbinar.data.room.datasource.MemberDataSource
-import com.binar.projectgroupmakerbinar.data.room.entity.MemberEntity
-import com.binar.projectgroupmakerbinar.data.room.model.ListGroup
+import com.binar.projectgroupmakerbinar.data.room.datasource.ResultDataSource
+import com.binar.projectgroupmakerbinar.data.room.entity.Group
+import com.binar.projectgroupmakerbinar.data.room.entity.Member
+import com.binar.projectgroupmakerbinar.data.room.entity.ResultData
+import com.binar.projectgroupmakerbinar.model.ResultModel
 import com.catnip.notepadku.wrapper.Resource
-import java.lang.reflect.Member
 
-/**
-Written with love by Muhammad Hermas Yuda Pamungkas
-Github : https://github.com/hermasyp
- **/
+
 interface LocalRepository {
-    suspend fun getAllMember(groupNa: String): Resource<List<MemberEntity>>
-    suspend fun getAllGroup(): Resource<List<MemberEntity>>
-    suspend fun deleteGroup(groupNa: String): Resource<String>
-    suspend fun deleteMember(memberEntity: MemberEntity): Resource<Number>
-    suspend fun insertMember(memberEntity: MemberEntity): Resource<Number>
+    suspend fun getAllMember(): Resource<List<Member>>
+    suspend fun deleteMember(member: Member): Resource<Number>
+    suspend fun updateMember(member: Member): Resource<Number>
+    suspend fun insertMember(member: Member): Resource<Number>
+    suspend fun getMemberById(id : Int): Resource<Member>
+    suspend fun getPlayersByPreset(id : String): Resource<List<Member>>
+    suspend fun getAllGroupByGroup(id : String): Resource<List<Member>>
+
+    suspend fun getAllGroups(): Resource<List<Group>>
+    suspend fun deleteGroup(group: Group): Resource<Number>
+    suspend fun updateGroup(group: Group): Resource<Number>
+    suspend fun insertGroup(group: Group): Resource<Number>
+
+
+    suspend fun getAllResult(): Resource<List<ResultModel>>
+    suspend fun getAllResultById(id : String): Resource<List<ResultData>>
+    suspend fun deleteResult(resultData: ResultData): Resource<Number>
+    suspend fun updateResult(resultData: ResultData): Resource<Number>
+    suspend fun insertResult(resultData: ResultData): Resource<Number>
+
 }
 
 class LocalRepositoryImpl(
+    private val preferenceDataSource: PreferenceDataSource,
     private val memberDataSource: MemberDataSource,
-) : LocalRepository {
-    override suspend fun getAllMember(groupNa: String): Resource<List<MemberEntity>> {
-        return proceed { memberDataSource.getAllMembers(groupNa)}
+    private val groupDataSource: GroupDataSource,
+    private val resultDataSource : ResultDataSource
+
+    ) : LocalRepository {
+    override suspend fun getAllMember(): Resource<List<Member>> {
+        return proceed { memberDataSource.getAllMember() }
     }
 
-    override suspend fun deleteGroup(groupNa: String): Resource<String> {
-        return proceed { memberDataSource.deleteGroup(groupNa)}
+    override suspend fun deleteMember(member: Member): Resource<Number> {
+        return proceed { memberDataSource.deleteMember(member) }
     }
 
-    override suspend fun getAllGroup(): Resource<List<MemberEntity>> {
-        return proceed { memberDataSource.getAllGroup()}
+    override suspend fun updateMember(member: Member): Resource<Number> {
+        return proceed { memberDataSource.updateMember(member) }
     }
 
-    override suspend fun deleteMember(memberEntity: MemberEntity): Resource<Number> {
-        return proceed { memberDataSource.deleteMember(memberEntity) }
+    override suspend fun insertMember(member: Member): Resource<Number> {
+        return proceed { memberDataSource.insertMember(member) }
     }
 
-    override suspend fun insertMember(memberEntity: MemberEntity): Resource<Number> {
-        return proceed { memberDataSource.insertMember(memberEntity) }
+    override suspend fun getMemberById(id: Int): Resource<Member> {
+        TODO("Not yet implemented")
     }
+
+
+    override suspend fun getPlayersByPreset(id: String): Resource<List<Member>>{
+        return proceed { memberDataSource.getPlayersByPreset(id) }
+    }
+
+    override suspend fun getAllGroupByGroup(id: String): Resource<List<Member>> {
+        return proceed { memberDataSource.getAllGroupByGroup(id) }
+    }
+
+
+    override suspend fun getAllGroups(): Resource<List<Group>> {
+        return proceed { groupDataSource.getAllGroup() }
+    }
+
+    override suspend fun deleteGroup(group: Group): Resource<Number> {
+        return proceed { groupDataSource.deleteGroup(group) }
+    }
+
+    override suspend fun updateGroup(group: Group): Resource<Number> {
+        return proceed { groupDataSource.updateGroup(group) }
+    }
+
+    override suspend fun insertGroup(group: Group): Resource<Number> {
+        return proceed { groupDataSource.insertGroup(group) }
+    }
+
+    override suspend fun getAllResult(): Resource<List<ResultModel>> {
+        return proceed { resultDataSource.getAllResult() }
+    }
+
+    override suspend fun getAllResultById(id: String): Resource<List<ResultData>> {
+        return proceed { resultDataSource.getAllResultById(id) }
+    }
+
+    override suspend fun deleteResult(resultData: ResultData): Resource<Number> {
+        return proceed { resultDataSource.deleteResult(resultData) }
+    }
+
+    override suspend fun updateResult(resultData: ResultData): Resource<Number> {
+        return proceed { resultDataSource.updateResult(resultData) }
+    }interface LocalRepository {
+        suspend fun getAllMember(): Resource<List<Member>>
+        suspend fun deleteMember(member: Member): Resource<Number>
+        suspend fun updateMember(member: Member): Resource<Number>
+        suspend fun insertMember(member: Member): Resource<Number>
+        suspend fun getMemberById(id : Int): Resource<Member>
+        suspend fun getPlayersByPreset(id : String): Resource<List<Member>>
+        suspend fun getAllGroupByGroup(id : String): Resource<List<Member>>
+
+        suspend fun getAllGroups(): Resource<List<Group>>
+        suspend fun deleteGroup(group: Group): Resource<Number>
+        suspend fun updateGroup(group: Group): Resource<Number>
+        suspend fun insertGroup(group: Group): Resource<Number>
+
+
+        suspend fun getAllResult(): Resource<List<ResultModel>>
+        suspend fun getAllResultById(id : String): Resource<List<ResultData>>
+        suspend fun deleteResult(resultData: ResultData): Resource<Number>
+        suspend fun updateResult(resultData: ResultData): Resource<Number>
+        suspend fun insertResult(resultData: ResultData): Resource<Number>
+
+    }
+
+    class LocalRepositoryImpl(
+        private val preferenceDataSource: PreferenceDataSource,
+        private val memberDataSource: MemberDataSource,
+        private val groupDataSource: GroupDataSource,
+        private val resultDataSource : ResultDataSource
+
+    ) : LocalRepository {
+        override suspend fun getAllMember(): Resource<List<Member>> {
+            return proceed { memberDataSource.getAllMember() }
+        }
+
+        override suspend fun deleteMember(member: Member): Resource<Number> {
+            return proceed { memberDataSource.deleteMember(member) }
+        }
+
+        override suspend fun updateMember(member: Member): Resource<Number> {
+            return proceed { memberDataSource.updateMember(member) }
+        }
+
+        override suspend fun insertMember(member: Member): Resource<Number> {
+            return proceed { memberDataSource.insertMember(member) }
+        }
+
+        override suspend fun getMemberById(id: Int): Resource<Member> {
+            TODO("Not yet implemented")
+        }
+
+
+        override suspend fun getPlayersByPreset(id: String): Resource<List<Member>>{
+            return proceed { memberDataSource.getPlayersByPreset(id) }
+        }
+
+        override suspend fun getAllGroupByGroup(id: String): Resource<List<Member>> {
+            return proceed { memberDataSource.getAllGroupByGroup(id) }
+        }
+
+
+        override suspend fun getAllGroups(): Resource<List<Group>> {
+            return proceed { groupDataSource.getAllGroup() }
+        }
+
+        override suspend fun deleteGroup(group: Group): Resource<Number> {
+            return proceed { groupDataSource.deleteGroup(group) }
+        }
+
+        override suspend fun updateGroup(group: Group): Resource<Number> {
+            return proceed { groupDataSource.updateGroup(group) }
+        }
+
+        override suspend fun insertGroup(group: Group): Resource<Number> {
+            return proceed { groupDataSource.insertGroup(group) }
+        }
+
+        override suspend fun getAllResult(): Resource<List<ResultModel>> {
+            return proceed { resultDataSource.getAllResult() }
+        }
+
+        override suspend fun getAllResultById(id: String): Resource<List<ResultData>> {
+            return proceed { resultDataSource.getAllResultById(id) }
+        }
+
+        override suspend fun deleteResult(resultData: ResultData): Resource<Number> {
+            return proceed { resultDataSource.deleteResult(resultData) }
+        }
+
+        override suspend fun updateResult(resultData: ResultData): Resource<Number> {
+            return proceed { resultDataSource.updateResult(resultData) }
+        }
+
+        override suspend fun insertResult(resultData: ResultData): Resource<Number> {
+            return proceed { resultDataSource.insertResult(resultData) }
+        }
+
+
+        private suspend fun <T> proceed(coroutine: suspend () -> T): Resource<T> {
+            return try {
+                Resource.Success(coroutine.invoke())
+            } catch (exception: Exception) {
+                Resource.Error(message = exception.message)
+            }
+        }
+    }
+
+    override suspend fun insertResult(resultData: ResultData): Resource<Number> {
+        return proceed { resultDataSource.insertResult(resultData) }
+    }
+
 
     private suspend fun <T> proceed(coroutine: suspend () -> T): Resource<T> {
         return try {

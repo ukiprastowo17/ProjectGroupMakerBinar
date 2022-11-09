@@ -1,23 +1,22 @@
 package com.binar.projectgroupmakerbinar.di
 
 import android.content.Context
-import com.binar.projectgroupmakerbinar.data.pref.SharedPreference
-import com.binar.projectgroupmakerbinar.data.pref.SharedPreferenceDataSource
-import com.binar.projectgroupmakerbinar.data.pref.SharedPreferenceDataSourceImpl
+import com.binar.projectgroupmakerbinar.data.pref.Preference
+import com.binar.projectgroupmakerbinar.data.pref.PreferenceDataSource
+import com.binar.projectgroupmakerbinar.data.pref.PreferenceDataSourceImpl
 import com.binar.projectgroupmakerbinar.data.repository.LocalRepository
 import com.binar.projectgroupmakerbinar.data.repository.LocalRepositoryImpl
 import com.binar.projectgroupmakerbinar.data.room.AppDatabase
+import com.binar.projectgroupmakerbinar.data.room.dao.GroupDao
 import com.binar.projectgroupmakerbinar.data.room.dao.MemberDao
+import com.binar.projectgroupmakerbinar.data.room.dao.ResultDao
 import com.binar.projectgroupmakerbinar.data.room.datasource.*
-import com.binar.projectgroupmakerbinar.ui.main.adapter.MembersAdapter
-import com.binar.projectgroupmakerbinar.ui.member.AddMember
-import com.binar.projectgroupmakerbinar.ui.member.CustomDialogAddMember
-import com.binar.projectgroupmakerbinar.ui.member.DashboardListMember
+
 
 object ServiceLocator {
 
-    fun provideUserPreference(context: Context): SharedPreference {
-        return SharedPreference(context)
+    fun provideUserPreference(context: Context): Preference {
+        return Preference(context)
     }
 
     fun provideAppDatabase(context: Context): AppDatabase {
@@ -28,21 +27,42 @@ object ServiceLocator {
         return provideAppDatabase(context).memberDao()
     }
 
+
+    fun provideGroupDao(context: Context): GroupDao {
+        return provideAppDatabase(context).groupDao()
+    }
+
+    fun provideResultDao(context: Context): ResultDao {
+        return provideAppDatabase(context).resultDao()
+    }
+
     fun provideMemberDataSource(context: Context): MemberDataSource {
         return MemberDataSourceImpl(provideMemberDao(context))
     }
 
 
-    fun provideLocalRepository(context: DashboardListMember): LocalRepository {
-        return LocalRepositoryImpl(
-            provideMemberDataSource(context)
+    fun provideGroupDataSource(context: Context): GroupDataSource {
+        return GroupDataSourceImpl(provideGroupDao(context))
+    }
+
+
+    fun provideResultDataSource(context: Context): ResultDataSource {
+        return ResultDataSourceImpl(provideResultDao(context))
+    }
+
+    fun providePreferenceDataSource(context: Context): PreferenceDataSource {
+        return PreferenceDataSourceImpl(provideUserPreference(context))
+    }
+
+
+    fun provideLocalRepository(context: Context): LocalRepositoryImpl.LocalRepository {
+        return LocalRepositoryImpl.LocalRepositoryImpl(
+            providePreferenceDataSource(context),
+            provideMemberDataSource(context),
+            provideGroupDataSource(context),
+            provideResultDataSource(context)
         )
     }
 
-    fun provideLocalRepositoryAddMember(context: AddMember): LocalRepository {
-        return LocalRepositoryImpl(
-            provideMemberDataSource(context)
-        )
-    }
-    
+
 }

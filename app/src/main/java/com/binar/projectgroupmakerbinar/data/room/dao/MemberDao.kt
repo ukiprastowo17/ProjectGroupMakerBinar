@@ -1,35 +1,36 @@
 package com.binar.projectgroupmakerbinar.data.room.dao
 
 import androidx.room.*
+import com.binar.projectgroupmakerbinar.constant.CommonConstant
+import com.binar.projectgroupmakerbinar.data.room.entity.Member
 import com.binar.projectgroupmakerbinar.data.room.entity.MemberEntity
 
 
 @Dao
 interface MemberDao {
 
-    @Query("SELECT * FROM tb_member WHERE `group`= :group ")
-    suspend fun getAllMembers(group: String) : List<MemberEntity>
-
-    @Query("SELECT * FROM tb_member GROUP BY `group`")
-    suspend fun getAllGroup() : List<MemberEntity>
+    @Query("SELECT * FROM " + CommonConstant.DATABASE_TABLE)
+    suspend fun getAllMember() : List<Member>
 
 
-    @Query("SELECT * FROM tb_member WHERE id == :id")
-    suspend fun getAllMembersById(id : Int) : MemberEntity
+    @Query("SELECT * FROM " + CommonConstant.DATABASE_TABLE + " WHERE "+ CommonConstant.KEY_ROWID +" == :id")
+    suspend fun getAllMembersById(id : Int) : Member
 
-    @Query("DELETE FROM tb_member WHERE `group` = :groupNa")
-    suspend fun deleteGroup(groupNa: String)
+    @Query("SELECT * FROM " + CommonConstant.DATABASE_TABLE + " WHERE "+  CommonConstant.KEY_NAME_MEMBER +" == :id")
+    suspend fun getPlayersByPreset(id : String) : List<Member>
 
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertMember(memberEntity: MemberEntity) : Long
+    @Query("SELECT * FROM " + CommonConstant.DATABASE_TABLE+ " where " + CommonConstant.KEY_ID_GROUP + "== :id")
+    suspend fun getAllGroupByGroup(id: String) : List<Member>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertMembers(memberEntity: List<MemberEntity>)
+    suspend fun insertMember(member: Member) : Long
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertMembers(member: List<Member>)
 
     @Delete
-    suspend fun deleteMember(memberEntity: MemberEntity) : Int
+    suspend fun deleteMember(member: Member) : Int
 
     @Update
-    suspend fun updateMember(memberEntity: MemberEntity) : Int
+    suspend fun updateMember(member: Member) : Int
 }

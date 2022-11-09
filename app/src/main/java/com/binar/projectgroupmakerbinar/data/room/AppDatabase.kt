@@ -5,8 +5,14 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.binar.projectgroupmakerbinar.constant.CommonConstant
+import com.binar.projectgroupmakerbinar.data.room.dao.GroupDao
 import com.binar.projectgroupmakerbinar.data.room.dao.MemberDao
+import com.binar.projectgroupmakerbinar.data.room.dao.ResultDao
+import com.binar.projectgroupmakerbinar.data.room.entity.Group
+import com.binar.projectgroupmakerbinar.data.room.entity.Member
 import com.binar.projectgroupmakerbinar.data.room.entity.MemberEntity
+import com.binar.projectgroupmakerbinar.data.room.entity.ResultData
 
 
 import kotlinx.coroutines.CoroutineScope
@@ -15,18 +21,19 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 
-@Database(entities = [MemberEntity::class], version = 1, exportSchema = true)
+@Database(entities = [Member::class, Group::class, ResultData::class], version = 4, exportSchema = true)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun memberDao(): MemberDao
+    abstract fun groupDao(): GroupDao
+    abstract fun resultDao(): ResultDao
+
 
     companion object {
-        private const val DB_NAME = "RANDOMAPP.db"
+        private const val DB_NAME = CommonConstant.DATABASE_NAME
 
         @Volatile
         private var INSTANCE: AppDatabase? = null
         fun getInstance(context: Context): AppDatabase {
-            // if the INSTANCE is not null, then return it,
-            // if it is, then create the database
             return INSTANCE ?: synchronized(this) {
 
                 val instance = Room.databaseBuilder(
@@ -54,30 +61,18 @@ class DatabaseSeederCallback(private val context: Context) : RoomDatabase.Callba
     override fun onCreate(db: SupportSQLiteDatabase) {
         super.onCreate(db)
         scope.launch {
-            AppDatabase.getInstance(context).memberDao().insertMembers(prepopulateNotes())
+//            AppDatabase.getInstance(context).memberDao().insertMembers(prepopulateNotes())
         }
     }
 
 
-    private fun prepopulateNotes(): List<MemberEntity> {
-        return mutableListOf(
-            MemberEntity( name = "SATU A", note="Catatan Group A", group = "Group A"),
-            MemberEntity( name = "DUA A", note="Catatan Group A", group = "Group A"),
-            MemberEntity( name = "TIGA A", note="Catatan Group A", group = "Group A"),
-            MemberEntity( name = "EMPAT A", note="Catatan Group A", group = "Group A"),
-            MemberEntity( name = "LIMA A", note="Catatan Group A", group = "Group A"),
 
-            MemberEntity( name = "SATU B", note="Catatan Group B", group = "Group B"),
-            MemberEntity( name = "DUA B", note="Catatan Group B", group = "Group B"),
-            MemberEntity( name = "TIGA B", note="Catatan Group B", group = "Group B"),
-            MemberEntity( name = "EMPAT B", note="Catatan Group B", group = "Group B"),
-            MemberEntity( name = "LIMA B", note="Catatan Group B", group = "Group B"),
-
-            MemberEntity( name = "SATU C", note="Catatan Group C", group = "Group C"),
-            MemberEntity( name = "DUA C", note="Catatan Group C", group = "Group C"),
-            MemberEntity( name = "TIGA C", note="Catatan Group C", group = "Group C"),
-            MemberEntity( name = "EMPAT C", note="Catatan Group C", group = "Group C"),
-            MemberEntity( name = "LIMA C", note="Catatan Group C", group = "Group C"),
-        )
-    }
+//    private fun prepopulateNotes(): List<Member> {
+////        return mutableListOf(
+////            Member( name = "Member 1", players = ""),
+////            Member( name = "Member 1", players = ""),
+////            Member( name = "Member 1", players = ""),
+////
+////        )
+//    }
 }

@@ -1,27 +1,35 @@
 package com.binar.projectgroupmakerbinar.data.room.dao
 
 import androidx.room.*
+import com.binar.projectgroupmakerbinar.constant.CommonConstant
+import com.binar.projectgroupmakerbinar.data.room.entity.ResultData
 import com.binar.projectgroupmakerbinar.data.room.entity.ResultEntity
+import com.binar.projectgroupmakerbinar.model.ResultModel
 
 
 @Dao
 interface ResultDao {
 
-    @Query("SELECT * FROM tb_result")
-    suspend fun getAllResults() : List<ResultEntity>
+    @Query("SELECT "+CommonConstant.KEY_RESULT_NAME+","+CommonConstant.KEY_RESULT_GROUP_NAME+" FROM " + CommonConstant.DATABASE_TABLE_RESULT + " GROUP BY " + CommonConstant.KEY_RESULT_NAME)
+    suspend fun getAllResult() : List<ResultModel>
 
-    @Query("SELECT * FROM tb_result WHERE id == :id")
-    suspend fun getAllResultsById(id : Int) : ResultEntity
+    @Query("SELECT * FROM " + CommonConstant.DATABASE_TABLE_RESULT + " WHERE " + CommonConstant.KEY_RESULT_NAME + " == :id ORDER BY " + CommonConstant.KEY_RESULT_TEAMS )
+    suspend fun getAllResultById(id: String) : List<ResultData>
+
+
+
+
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertResult(resultEntity: ResultEntity) : Long
+    suspend fun insertResult(resultData: ResultData) : Long
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertResults(resultEntity: List<ResultEntity>)
+    suspend fun insertResult(resultData: List<ResultData>)
 
     @Delete
-    suspend fun deleteResult(resultEntity: ResultEntity) : Int
+    suspend fun deleteResult(resultData: ResultData) : Int
 
     @Update
-    suspend fun updateResult(resultEntity: ResultEntity) : Int
+    suspend fun updateResult(resultData: ResultData) : Int
+
 }

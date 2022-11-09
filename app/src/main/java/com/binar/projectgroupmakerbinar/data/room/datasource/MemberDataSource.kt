@@ -1,55 +1,53 @@
 package com.binar.projectgroupmakerbinar.data.room.datasource
 
 import com.binar.projectgroupmakerbinar.data.room.dao.MemberDao
+import com.binar.projectgroupmakerbinar.data.room.entity.Member
 import com.binar.projectgroupmakerbinar.data.room.entity.MemberEntity
 
 
 interface MemberDataSource {
-    suspend fun getAllMembers(groupNa: String): List<MemberEntity>
-    suspend fun getAllGroup(): List<MemberEntity>
-    suspend fun getAllMembersById(id: Int): MemberEntity
-    suspend fun deleteGroup(groupNa: String): String
-    suspend fun insertMember(memberEntity: MemberEntity): Long
-    suspend fun insertMembers(memberEntity: List<MemberEntity>)
+    suspend fun getAllMember(): List<Member>
 
-    suspend fun deleteMember(memberEntity: MemberEntity): Int
+    suspend fun getAllMembersById(id: Int): Member
 
-    suspend fun updateMember(memberEntity: MemberEntity): Int
+    suspend fun getPlayersByPreset(id: String): List<Member>
+
+    suspend fun insertMember(member: Member): Long
+
+    suspend fun deleteMember(member: Member): Int
+
+    suspend fun updateMember(member: Member): Int
+
+    suspend fun getAllGroupByGroup(id:String): List<Member>
 }
 
 class MemberDataSourceImpl(private val dao: MemberDao) : MemberDataSource {
-    override suspend fun getAllMembers(groupNa: String): List<MemberEntity> {
-        return dao.getAllMembers(groupNa)
+    override suspend fun getAllMember(): List<Member> {
+        return dao.getAllMember()
     }
 
-    override suspend fun deleteGroup(groupNa: String): String {
-        dao.deleteGroup(groupNa)
-        return "Delete"
+    override suspend fun getAllMembersById(id: Int): Member {
+        return dao.getAllMembersById(id)
     }
 
-    override suspend fun getAllGroup(): List<MemberEntity> {
-        return dao.getAllGroup()
+    override suspend fun getAllGroupByGroup(id: String): List<Member> {
+        return dao.getAllGroupByGroup(id)
     }
 
-
-    override suspend fun getAllMembersById(id: Int): MemberEntity {
-       return dao.getAllMembersById(id)
+    override suspend fun getPlayersByPreset(id: String): List<Member> {
+        return dao.getPlayersByPreset(id)
     }
 
-    override suspend fun insertMember(memberEntity: MemberEntity): Long {
-        return dao.insertMember(memberEntity)
+    override suspend fun insertMember(member: Member): Long {
+        return dao.insertMember(member)
     }
 
-    override suspend fun insertMembers(memberEntity: List<MemberEntity>) {
-        return dao.insertMembers(memberEntity)
+    override suspend fun deleteMember(member: Member): Int {
+        return dao.deleteMember(member)
     }
 
-    override suspend fun deleteMember(memberEntity: MemberEntity): Int {
-        return dao.deleteMember(memberEntity)
-    }
-
-    override suspend fun updateMember(memberEntity: MemberEntity): Int {
-        return dao.updateMember(memberEntity)
+    override suspend fun updateMember(member: Member): Int {
+        return dao.updateMember(member)
     }
 
 

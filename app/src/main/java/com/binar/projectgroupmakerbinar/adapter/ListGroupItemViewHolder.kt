@@ -1,13 +1,9 @@
 package com.binar.projectgroupmakerbinar.adapter
 
 import android.content.Intent
-import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
 import com.binar.projectgroupmakerbinar.databinding.ItemListBinding
 import com.binar.projectgroupmakerbinar.model.ListGroup
-import com.binar.projectgroupmakerbinar.ui.member.AddMember
 
 class ListGroupItemViewHolder(private val binding: ItemListBinding) :
     RecyclerView.ViewHolder(binding.root) {

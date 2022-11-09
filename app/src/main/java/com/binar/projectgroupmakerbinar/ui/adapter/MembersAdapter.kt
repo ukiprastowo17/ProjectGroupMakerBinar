@@ -5,21 +5,10 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.RecyclerView
-import com.binar.projectgroupmakerbinar.base.GenericViewModelFactory
-import com.binar.projectgroupmakerbinar.data.repository.LocalRepository
 import com.binar.projectgroupmakerbinar.data.room.entity.MemberEntity
 import com.binar.projectgroupmakerbinar.databinding.ItemListBinding
-import com.binar.projectgroupmakerbinar.di.ServiceLocator
-import com.binar.projectgroupmakerbinar.ui.member.AddMember
-import com.binar.projectgroupmakerbinar.ui.member.MainViewModel
 import com.catnip.notepadku.wrapper.Resource
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 
 typealias MemberResultType = Resource<List<MemberEntity>>
