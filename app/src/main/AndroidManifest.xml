@@ -79,6 +79,11 @@
         <activity
             android:name="com.binar.projectgroupmakerbinar.ui.aboutpage.menu.MenuAboutActivity"
             android:exported="true">
+            android:name=".MainActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".slider.LandingPageActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

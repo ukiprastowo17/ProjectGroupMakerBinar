@@ -38,4 +38,20 @@
     <string name="title_desc_menu2">Information about \nour team</string>
     <string name="text_group_splash">Group</string>
     <string name="text_maker_splash">Maker</string>
+    <string name="text_previous">Previous</string>
+    <string name="text_next">Next</string>
+    <string name="text_back">Back</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tour_de_java">Tour de Java</string>
+    <string name="october_27_2022">October 27, 2022</string>
+    <string name="text_delete_1">You’re about to delete this history</string>
+    <string name="text_desc_del">All your data grouping in this history will be permanently removed and you won’t be able to see them again.</string>
+    <string name="easy_to_use">Easy \nTo Use</string>
+    <string name="fast_best_solution"><![CDATA[Fast & \nBest Solution]]></string>
+    <string name="text_desc_lp1">Membuat grup menjadi lebih mudah \nhanya dari ponsel Anda.</string>
+    <string name="text_desc_lp2">Sebagai sebuah solusi yang cepat dan tepat. Anda juga \nbisa memberikan nama grup.</string>
+    <string name="text_delete">Delete</string>
+    <string name="text_view_detail">View Detail</string>
+    <string name="text_history">History \nGroup</string>
+    <string name="text_group">Group</string>
 </resources>
