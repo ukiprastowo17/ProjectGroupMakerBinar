@@ -1,6 +1,5 @@
 package com.binar.projectgroupmakerbinar.constant
 
-
 object CommonConstant {
     const val UNSET_ID = -1
     const val EXTRAS_ID_NOTE = "EXTRAS_ID_NOTE"
@@ -18,6 +17,7 @@ object CommonConstant {
     const val EXTRAS_JOB = "EXTRAS_JOB"
     const val EXTRAS_DESC = "EXTRAS_DESC"
     const val EXTRAS_IMG = "EXTRAS_IMG"
+
 
     const val DATABASE_TABLE_GROUP = "tb_group"
     const val KEY_GROUP_NAME = "name_group"
@@ -38,5 +38,6 @@ object CommonConstant {
 
 
     const val GROUP_ID = "id_group"
+
 
 }
