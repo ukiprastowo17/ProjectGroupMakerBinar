@@ -130,7 +130,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_regular"
-                            android:text="@string/text_member"
+                            android:text="@string/text_random_group"
                             android:textColor="@color/white"
                             android:textSize="14sp" />
 
