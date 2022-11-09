@@ -62,7 +62,9 @@ class MemberFormActivity : BaseActivity<ActivityMemberFormBinding>(ActivityMembe
             AddMemberDialog().show(supportFragmentManager, "List member")
         }
 
-
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
         binding.btnRandom.setOnClickListener {
 
             var dataJumlah = binding.edtJumlahTim.text.toString()
